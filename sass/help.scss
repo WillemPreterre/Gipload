@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+$red: #FF3535;
+$black: #000000;
+$grey: #707070;
+$purple: #CA02D8;
+$black_grey: #1A1A1A;
+$white: #FFFFFF;
+$pink: #FF3B97;
+$blue: #00D2FF;
+$orange: #FF6E00;
+$green: #00FFA2;
+
+
+
+$colours : (
+red: #FF3535,
+black: #000000,
+grey: #707070,
+purple: #CA02D8,
+black_grey: #1A1A1A,
+white: #FFFFFF,
+pink: #FF3B97,
+blue: #00D2FF,
+orange: #FF6E00,
+green: #00FFA2
+);
+
+// 
+//        @@@header
+//
+
+//création all color
+@each $colour, $hex in $colours {
+    .color--#{$colour} {
+        background-color: $hex;
+    }
+}
+
+//création all font-size
+@for $i from 1 through 5 {
+    .grid-#{$i} {
+        width : 10px*$i;
+    }
+}
+
+
+* {
+    margin: 0px;
+    font-family:'Roboto', sans-serif; ;
+}
+main {
+    background-color: $black;
+}
+
+// 
+//        @@@color
+//
+a {
+    color: $white ;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+    align-items: center;
+    padding: 20px 10px  ;
+    border: $grey, 8px, solid;
+    .nav_title {
+        font-size: 30px
+    }
+    .nav_link a{
+        text-decoration:none;
+        font-size: 18px;
+        background-color: $blue;
+        padding: 7px;
+        margin: 1px;
+    }
+    .nav_link a:nth-child(3){
+        background-color: $pink;
+    }
+}
+.form {
+    color: $black;
+    background-color: $black_grey;
+    margin: 5px;
+    .form_title {
+        font-size: 30px;
+        
+    }
+    
+}

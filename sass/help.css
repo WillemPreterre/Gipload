@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+.color--red {
+  background-color: #FF3535;
+}
+
+.color--black {
+  background-color: #000000;
+}
+
+.color--grey {
+  background-color: #707070;
+}
+
+.color--purple {
+  background-color: #CA02D8;
+}
+
+.color--black_grey {
+  background-color: #1A1A1A;
+}
+
+.color--white {
+  background-color: #FFFFFF;
+}
+
+.color--pink {
+  background-color: #FF3B97;
+}
+
+.color--blue {
+  background-color: #00D2FF;
+}
+
+.color--orange {
+  background-color: #FF6E00;
+}
+
+.color--green {
+  background-color: #00FFA2;
+}
+
+.grid-1 {
+  width: 10px;
+}
+
+.grid-2 {
+  width: 20px;
+}
+
+.grid-3 {
+  width: 30px;
+}
+
+.grid-4 {
+  width: 40px;
+}
+
+.grid-5 {
+  width: 50px;
+}
+
+* {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  background-color: #000000;
+}
+
+a {
+  color: #FFFFFF;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #FFFFFF;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 10px;
+  border: #707070, 8px, solid;
+}
+
+nav .nav_title {
+  font-size: 30px;
+}
+
+nav .nav_link a {
+  text-decoration: none;
+  font-size: 18px;
+  background-color: #00D2FF;
+  padding: 7px;
+  margin: 1px;
+}
+
+nav .nav_link a:nth-child(3) {
+  background-color: #FF3B97;
+}
+
+.form {
+  color: #000000;
+  background-color: #1A1A1A;
+  margin: 5px;
+}
+
+.form .form_title {
+  font-size: 30px;
+}
+/*# sourceMappingURL=help.css.map */
