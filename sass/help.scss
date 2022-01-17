@@ -1,94 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-
-$red: #FF3535;
+$red: #ff3535;
 $black: #000000;
 $grey: #707070;
-$purple: #CA02D8;
-$black_grey: #1A1A1A;
-$white: #FFFFFF;
-$pink: #FF3B97;
-$blue: #00D2FF;
-$orange: #FF6E00;
-$green: #00FFA2;
+$purple: #ca02d8;
+$black_grey: #1a1a1a;
+$white: #ffffff;
+$pink: #ff3b97;
+$blue: #00d2ff;
+$orange: #ff6e00;
+$green: #00ffa2;
 
-
-
-$colours : (
-red: #FF3535,
-black: #000000,
-grey: #707070,
-purple: #CA02D8,
-black_grey: #1A1A1A,
-white: #FFFFFF,
-pink: #FF3B97,
-blue: #00D2FF,
-orange: #FF6E00,
-green: #00FFA2
+$colours: (
+    red: #ff3535,
+    black: #000000,
+    grey: #707070,
+    purple: #ca02d8,
+    black_grey: #1a1a1a,
+    white: #ffffff,
+    pink: #ff3b97,
+    blue: #00d2ff,
+    orange: #ff6e00,
+    green: #00ffa2,
 );
 
-// 
+//
 //        @@@header
 //
 
 //création all color
 @each $colour, $hex in $colours {
-    .color--#{$colour} {
+    .BgColor--#{$colour} {
         background-color: $hex;
+    }
+}
+@each $colour, $hex in $colours {
+    .color--#{$colour} {
+        color: $hex;
     }
 }
 
 //création all font-size
 @for $i from 1 through 5 {
     .grid-#{$i} {
-        width : 10px*$i;
+        width: 10px * $i;
     }
 }
 
-
 * {
     margin: 0px;
-    font-family:'Roboto', sans-serif; ;
+    font-family: "Roboto", sans-serif;
+    color: $white;
 }
-main {
+
+body {
     background-color: $black;
 }
 
-// 
+//
 //        @@@color
 //
-a {
-    color: $white ;
+
+header {
+    border: 1px, solid, $white;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    color: $white;
     align-items: center;
-    padding: 20px 10px  ;
-    border: $grey, 8px, solid;
+    padding: 20px 10px;
+
     .nav_title {
-        font-size: 30px
+        font-size: 30px;
     }
-    .nav_link a{
-        text-decoration:none;
+    .nav_link a {
+        text-decoration: none;
         font-size: 18px;
         background-color: $blue;
         padding: 7px;
         margin: 1px;
     }
-    .nav_link a:nth-child(3){
+    .nav_link a:nth-child(3) {
         background-color: $pink;
     }
 }
+
 .form {
-    color: $black;
     background-color: $black_grey;
-    margin: 5px;
+    margin: 20px;
     .form_title {
         font-size: 30px;
-        
+        background-color: $grey;
+        text-align: center;
+        padding: 20px;
     }
-    
+}
+
+form {
+    padding-bottom: 5px;
+    padding-top: 25px;
+    font-size: 20px;
+    section > div {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: auto;
+        width: 85%;
+        padding-bottom: 15px;
+        .form_icon_danger {
+            width: 32px;
+            height: 32px;
+        }
+        .form_btn {
+            padding: 10px;
+            font-size: 30px;
+            background-color: $purple;
+            border: none;
+            color: $white;
+        }
+        .form_input {
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 10px;
+        }
+    }
+    .link_connect {
+        font-size: 18px;
+        padding: 2px;
+    }
+    .form_checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 13px;
+    }
+    .form_link {
+        padding: 0px;
+    }
 }

@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
     <link href="../sass/help.css" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/998854ecdc.js" crossorigin="anonymous"></script>
 </head>
 
 <header class="color--black">
     <nav>
         <h1 class="nav_title" ><a href="../index.php">Gipload</a></h1>
         <div class="nav_link">
-            <a href="../controllers/UserInscription.php">Register</a>
+            <a rel="stylesheet" href="../controllers/UserInscription.php">Register</a>
             <a class="btn_pink" href="">Sign in</a>
-            <a href="">About</a>
+            <a rel="stylesheet" href="">About</a>
         </div>
     </nav>
 </header>

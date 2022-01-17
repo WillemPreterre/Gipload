@@ -1,7 +1,6 @@
 <?php
+require_once('../others/utils.php');
 
-
-echo preg_match('aaaa','/^def/');
 
 
 $title = 'Connection';
