@@ -117,12 +117,13 @@ form {
             font-size: 30px;
             background-color: $purple;
             border: none;
-            color: $white;
         }
         .form_input {
             padding: 12px 20px;
             margin: 8px 0;
             border-radius: 10px;
+            color: $black !important;
+
         }
     }
     .link_connect {

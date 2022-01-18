@@ -37,7 +37,6 @@ class User
         $sql = "INSERT INTO  User (user_name,user_email,user_password,user_createdate ,user_editdate)
         VALUES (?,?,?,?,?)";
         $sth = Database::connectDB()->prepare($sql)->execute([$this->username, $this->email, $this->password, date('y.m.d'), date('y.m.d')]);
-        pretty_print_r($sth);
         if ($sth == true) {
             echo "Records added successfully.";
         } else {
@@ -46,10 +45,14 @@ class User
 
         return $sth;
     }
-
-
-    // [queryString] => INSERT INTO User ('user_name','user_email','user_password','user_createdate' ,'user_editdate')
-    // VALUES ('aaa','admin.admin@gmail.com','aaa',date('m.d.y'),date('m.d.y'));
+    // $cookie_name,$cookie_value
+    public function connection() {
+        // setcookie($cookie_name, $cookie_value, time() + (86400 * 365), "/"); // 86400 = 1 day
+        $stmt = $this->db->query("SELECT user_name,user_password FROM User");
+        pretty_print_r($stmt);
+        $users = $stmt->fetchAll();
+        return $this->$users;
+    }
 
     public function __set($property, $value)
     {

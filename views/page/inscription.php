@@ -4,9 +4,8 @@
         <h2 class="form_title">Inscription</h2>
         <form class="form_champ" method="POST">
             <section>
-
                 <div class="form_field">
-                    <label class="color--green" for="username">Username:</label>
+                    <label require class="color--green" for="username">Username:</label>
                     <input class="form_input" type="text" id="username" name="username">
                 </div>
                 <div class="form_field">

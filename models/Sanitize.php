@@ -4,6 +4,7 @@ class Sanitize
 
     public static $email_sanitize;
     public static $regex_result;
+    public static $text_sanitize;
 
     public static function email($email)
     {
@@ -17,6 +18,14 @@ class Sanitize
         } else {
             echo ("this email is not a valid email address");
         }
+    }
+
+    public static function text($text) {
+        self::$text_sanitize =  filter_var($text, FILTER_SANITIZE_SPECIAL_CHARS);
+
+        self::$text_sanitize =  filter_var($text, FILTER_SANITIZE_STRING);
+
+        return self::$text_sanitize;
     }
 
     public static function regex($patern, $subject)

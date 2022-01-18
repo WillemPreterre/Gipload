@@ -184,13 +184,13 @@ form section > div .form_btn {
   font-size: 30px;
   background-color: #ca02d8;
   border: none;
-  color: #ffffff;
 }
 
 form section > div .form_input {
   padding: 12px 20px;
   margin: 8px 0;
   border-radius: 10px;
+  color: #000000 !important;
 }
 
 form .link_connect {
