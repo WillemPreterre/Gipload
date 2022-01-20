@@ -53,7 +53,7 @@ CREATE TABLE `User` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_password` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_password` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_createdate` date DEFAULT NULL,
   `user_editdate` date DEFAULT NULL,
   PRIMARY KEY (`user_id`)

@@ -33,9 +33,8 @@ class User
 
     public function inscription()
     {
-        // Prepare si il y a un ? query sinon query pas besoin de  execute
         $sql = "INSERT INTO  User (user_name,user_email,user_password,user_createdate ,user_editdate)
-        VALUES (?,?,?,?,?)";
+        VALUES (?,?,?,?,?)"; 
         $sth = Database::connectDB()->prepare($sql)->execute([$this->username, $this->email, $this->password, date('y.m.d'), date('y.m.d')]);
         if ($sth == true) {
             echo "Records added successfully.";
@@ -45,13 +44,28 @@ class User
 
         return $sth;
     }
-    // $cookie_name,$cookie_value
-    public function connection() {
+
+
+        // Prepare si il y a un ? query sinon query pas besoin de  execute
+      
+    public function connection($username) {
         // setcookie($cookie_name, $cookie_value, time() + (86400 * 365), "/"); // 86400 = 1 day
-        $stmt = $this->db->query("SELECT user_name,user_password FROM User");
-        pretty_print_r($stmt);
-        $users = $stmt->fetchAll();
-        return $this->$users;
+        $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_name= ?");
+        $stmt->execute([$username]);
+        $users = $stmt->fetch();
+        pretty_print_r($users);
+        return $users;
+
+    }
+
+
+    public function getInformation($id) {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetch();
+        pretty_print_r($details);
+        return $details;
+
     }
 
     public function __set($property, $value)

@@ -20,14 +20,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Password
     // Email [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$ 
 
+    //Sanitize
     $sanitize_email = Sanitize::email($email);
     $sanitize_username = Sanitize::text($username);
+    $sanitize_password = Sanitize::text($password);
     // $regex_password = Sanitize::regex($patternPassword, $password);
 
+    //Patern pour trier et message d'erreur
     $uppercase = "AZERTYUIOPQSDFGHJKLMWXCVBN";
     $lowercase = "azertyuiopqsdfghjklmwxcvbn";
     $number = "1234567890";
-
+    $password_hash = password_hash($sanitize_password, PASSWORD_BCRYPT);
     if (isset($sanitize_email, $sanitize_username)) {
         if ($username == $sanitize_username) {
             if ($password == $validate_password) {
@@ -46,8 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         break;
 
                     default:
+
                         echo ("password correct");
-                        $inscription = new User(0, $username, $sanitize_email, $password);
+                        $inscription = new User(0, $username, $sanitize_email, $password_hash);
                         $inscription->inscription();
                         break;
                 }
@@ -67,3 +71,4 @@ render('page/inscription', compact('title'));
 
 // Sanitize de l'espace
 // Checkbox
+//doublon

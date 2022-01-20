@@ -28,25 +28,6 @@ $colours: (
 //        @@@header
 //
 
-//création all color
-@each $colour, $hex in $colours {
-    .BgColor--#{$colour} {
-        background-color: $hex;
-    }
-}
-@each $colour, $hex in $colours {
-    .color--#{$colour} {
-        color: $hex;
-    }
-}
-
-//création all font-size
-@for $i from 1 through 5 {
-    .grid-#{$i} {
-        width: 10px * $i;
-    }
-}
-
 * {
     margin: 0px;
     font-family: "Roboto", sans-serif;
@@ -68,18 +49,21 @@ header {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 20px 10px;
 
+    .nav_link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .nav_title {
         font-size: 30px;
     }
     .nav_link a {
         text-decoration: none;
         font-size: 18px;
-        background-color: $blue;
-        padding: 7px;
-        margin: 1px;
+        padding: 9px;
+        margin-right: 10px;
     }
     .nav_link a:nth-child(3) {
         background-color: $pink;
@@ -123,7 +107,6 @@ form {
             margin: 8px 0;
             border-radius: 10px;
             color: $black !important;
-
         }
     }
     .link_connect {
@@ -139,5 +122,46 @@ form {
     }
     .form_link {
         padding: 0px;
+    }
+}
+
+.fa-user {
+    font-size: 30px;
+}
+.deroulant > a {
+    display: block;
+    width: auto;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    text-decoration: none;
+    transform: translate(-1000px, 0);
+    margin: 1px;
+    background-color: #00d2ff;
+    transition: all 0.5s ease;;
+
+}
+#ch:checked+nav {
+    transform: translate(0, 0);
+    transition: all 0.5s ease;;
+
+}
+
+//création all color
+@each $colour, $hex in $colours {
+    .BgColor--#{$colour} {
+        background-color: $hex;
+    }
+}
+@each $colour, $hex in $colours {
+    .color--#{$colour} {
+        color: $hex;
+    }
+}
+
+//création all font-size
+@for $i from 1 through 5 {
+    .grid-#{$i} {
+        width: 10px * $i;
     }
 }
