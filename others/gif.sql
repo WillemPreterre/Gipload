@@ -79,11 +79,11 @@ CREATE TABLE `Gif` (
   `gif_id` int(11) NOT NULL AUTO_INCREMENT,
   `gif_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gif_date` date DEFAULT NULL,
+  `gif_url` varchar(100) DEFAULT NULL,
   `gif_size` int(11) DEFAULT NULL,
   `gif_like` int(11) DEFAULT NULL,
   `gif_view` int(11) DEFAULT NULL,
   `gif_download` int(11) DEFAULT NULL,
-  `gif_dateDelete` date DEFAULT NULL,
   `category_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`gif_id`),
@@ -91,18 +91,10 @@ CREATE TABLE `Gif` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `Gif_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `Category` (`category_id`),
   CONSTRAINT `Gif_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (1, 'Gage', '2013-10-11', 8361, 4, 39, 57, '2014-09-19', 1, 1);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (2, 'Garry', '1974-05-30', 3862, 93, 19, 81, '2009-08-17', 2, 2);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (3, 'Ulises', '2011-06-04', 3156, 50, 0, 75, '1991-02-09', 3, 3);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (4, 'Sigrid', '1985-11-04', 3126, 26, 88, 9, '2008-01-31', 4, 4);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (5, 'Josue', '1991-02-13', 700, 39, 56, 77, '1973-12-20', 5, 5);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (6, 'Alex', '1992-04-11', 5800, 68, 86, 61, '2006-01-01', 6, 1);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (7, 'Tyshawn', '2012-12-25', 5259, 37, 71, 46, '1988-06-13', 1, 2);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (8, 'Camryn', '1979-04-09', 4534, 61, 1, 69, '1999-10-21', 2, 3);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (9, 'Reinhold', '1991-12-06', 6983, 94, 22, 31, '2001-11-09', 3, 4);
-INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_size`, `gif_like`, `gif_view`, `gif_download`, `gif_dateDelete`, `category_id`, `user_id`) VALUES (10, 'Burley', '2000-06-13', 9383, 56, 79, 71, '1984-06-20', 4, 5);
+INSERT INTO `Gif` (`gif_id`, `gif_name`, `gif_date`, `gif_url`, `gif_size`, `gif_like`, `gif_view`, `gif_download`,  `category_id`, `user_id`) VALUES (1, 'Gage', '2013-10-11',' gif1.gif', 8361, 4, 39, 57, 1, 1);
+
 
 #
 # TABLE STRUCTURE FOR: Get_tag_for_gif
@@ -120,12 +112,4 @@ CREATE TABLE `Get_tag_for_gif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (1, 5);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (2, 1);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (3, 3);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (4, 4);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (5, 2);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (6, 2);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (7, 2);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (8, 5);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (9, 4);
-INSERT INTO `Get_tag_for_gif` (`gif_id`, `tag_id`) VALUES (10, 5);
+

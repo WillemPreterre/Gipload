@@ -1,5 +1,7 @@
-
 <?php
+
+require_once('../models/Gif.php');
+
 
 $target_dir = "../assets/gifs/";
 $target_file = $target_dir . basename($_FILES["gif_upload"]["name"]);
@@ -43,6 +45,8 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["gif_upload"]["tmp_name"], $target_file)) {
         echo "The file " . htmlspecialchars(basename($_FILES["gif_upload"]["name"])) . " has been uploaded.";
+        $newgif = new Gif('Nom du gif', basename($_FILES["gif_upload"]["name"]), $_FILES["gif_upload"]["size"], 1);
+        $newgif->addGif();
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
