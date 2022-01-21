@@ -20,12 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (
         isset($user_post, $password_post)
-    ) {
-
-
-        // vérification username
-
-
+    ) { 
         // Condition pour connection
         if (
             isset($sanitaze_username)  && isset($sanitaze_password)
