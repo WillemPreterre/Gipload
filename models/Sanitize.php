@@ -12,12 +12,8 @@ class Sanitize
 
         self::$email_sanitize =  filter_var($email, FILTER_SANITIZE_EMAIL);
 
-        if (filter_var(self::$email_sanitize, FILTER_VALIDATE_EMAIL ) == true) {
-            echo ("Email valide");
-            return self::$email_sanitize;
-        } else {
-            echo ("this email is not a valid email address");
-        }
+        return self::$email_sanitize;
+
     }
 
     public static function text($text) {

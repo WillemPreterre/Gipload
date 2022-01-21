@@ -2,6 +2,7 @@
 require_once('../others/utils.php');
 require_once('../models/User.php');
 require_once('../models/Sanitize.php');
+require_once('../models/Link.php');
 
 if (!isset($_COOKIE)) {
     setcookie("name", null, time() + (86400 * 90), "/"); // 86400 = 1 day 
@@ -18,8 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sanitaze_password = Sanitize::text($password_post);
 
     if (
-        isset($user_post) && !empty($user_post) &&
-        isset($password_post) && !empty($password_post)
+        isset($user_post, $password_post)
     ) {
 
 
@@ -28,19 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Condition pour connection
         if (
-            isset($sanitaze_username) && !empty($sanitaze_username) &&
-            isset($sanitaze_password) && !empty($sanitaze_password)
+            isset($sanitaze_username)  && isset($sanitaze_password)
         ) {
             //initialisation des variables pour les cookies
             $connection = new User(0, '', '', '');
             $user_name_verif = $connection->connection($sanitaze_username);
             // condition pour vérif si erreur dans les champs et pour set le cookie
             if (password_verify($password_post, $user_name_verif['user_password'])) {
-
-
-
                 setcookie("name", $user_name_verif['user_id'], time() + (86400 * 90), "/"); // 86400 = 1 day 
-                echo ("Connection");
+
+                Link::redirectTo("UserEdit");
             } else {
                 echo ('id or password incorrect');
             }
@@ -51,6 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $title = 'Connection';
+
+
+if (empty($password_message)) {
+    $name_message = "";
+}
 
 render('page/Connection', compact('title'));
 // render('default', compact('cookie_name','cookie_value'));

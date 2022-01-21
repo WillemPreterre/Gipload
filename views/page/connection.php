@@ -8,16 +8,12 @@
                 <div class="form_field">
                     <label class="color--green" for="username">Username:</label>
                     <input class="form_input" type="text" id="username" name="username">
-                    <?php
-                    // echo $errorChamp 
-                    ?>
+
                 </div>
                 <div class="form_field">
                     <label class="color--orange" for="password">Password:</label>
                     <input class="form_input" type="password" id="password" name="password">
-                    <?php
-                    // echo $errorChamp 
-                    ?>
+
                 </div>
 
                 <div class="form_field">

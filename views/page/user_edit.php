@@ -16,7 +16,7 @@
                     <label class="color--blue" for="password">Password:</label>
                     <input class="form_input" type="password" id="password" name="password">
                 </div>
-                <div class="form_field">
+                <div class="form_field form_hidden" >
                     <label class="color--pink" for="validate_password">Validate Password:</label>
                     <input class="form_input" type="password" id="validate_password" name="validate_password">
                 </div>
@@ -25,7 +25,7 @@
                     <label for="privacy">i read and accept The <a href="">Termes of Services</a> </label>
                 </div>
                 <div class="form_field">
-                    <input class="form_btn" type="submit" value="Submit">
+                    <input class="form_btn" type="submit" value="Change">
 
                 </div>
                 <div class="form_link"> <a class="link_connect" rel="stylesheet" href="../controllers/userConnection.php">Se connecter</a></div>

@@ -7,14 +7,18 @@
                 <div class="form_field">
                     <label require class="color--green" for="username">Username:</label>
                     <input class="form_input" type="text" id="username" name="username">
+                <?php echo $username_message ?>
                 </div>
                 <div class="form_field">
                     <label class="color--orange" for="email">E-mail:</label>
                     <input class="form_input" type="email" id="email" name="email">
+                    <?php echo $email_message ?>
                 </div>
                 <div class="form_field">
                     <label class="color--blue" for="password">Password:</label>
                     <input class="form_input" type="password" id="password" name="password">
+                    <?php 
+                    echo $password_message ?>
                 </div>
                 <div class="form_field">
                     <label class="color--pink" for="validate_password">Validate Password:</label>

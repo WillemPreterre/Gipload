@@ -2,72 +2,81 @@
 require_once('../others/utils.php');
 require_once('../models/User.php');
 require_once('../models/Sanitize.php');
+require_once('../models/Link.php');
 
 // mettre en classe
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Extract all the name in the form can use it to take the data from form
     extract($_POST);
     // print_r($_POST);
+
     // Get all the data and put it on a var
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    //Get this information to 
     $validate_password = $_POST["validate_password"];
-
-    // ^ start the regex \ S* Any set of characters / (?=\S{8,}) At least 8 length / (?=\S*[a-z]) One lowercase / (?=\S*[A-Z]) One Uppercase / (?=\S*[\d]) At least one number / $ end the regex
-    $patternPassword = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]\S{8,}^";
-    // Password
-    // Email [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$ 
 
     //Sanitize
     $sanitize_email = Sanitize::email($email);
     $sanitize_username = Sanitize::text($username);
     $sanitize_password = Sanitize::text($password);
-    // $regex_password = Sanitize::regex($patternPassword, $password);
 
     //Patern pour trier et message d'erreur
     $uppercase = "AZERTYUIOPQSDFGHJKLMWXCVBN";
     $lowercase = "azertyuiopqsdfghjklmwxcvbn";
     $number = "1234567890";
     $password_hash = password_hash($sanitize_password, PASSWORD_BCRYPT);
-    if (isset($sanitize_email, $sanitize_username)) {
-        if ($username == $sanitize_username) {
+
+    //Condition Password  + email + username
+
+    if (filter_var($sanitize_email, FILTER_VALIDATE_EMAIL) == true) {
+        if (isset($sanitize_email, $sanitize_username) && strlen($sanitize_username) >= 3) {
             if ($password == $validate_password) {
                 switch ($password) {
                     case strpbrk($password, $uppercase) == NULL:
-                        echo ("Need one UpperCase");
+                        $password_message = "Need one UpperCase";
                         break;
                     case strpbrk($password, $number) == NULL:
-                        echo ("Need one number");
+                        $password_message = "Need one number";
                         break;
                     case strpbrk($password, $lowercase) == false:
-                        echo ("Need one LowerCase");
+                        $password_message = "Need one LowerCase";
                         break;
                     case strlen($password) <= 8:
-                        echo ("Need 8 Character");
+                        $password_message = "Need 8 Character";
                         break;
 
                     default:
-
-                        echo ("password correct");
                         $inscription = new User(0, $username, $sanitize_email, $password_hash);
                         $inscription->inscription();
+                        Link::redirectTo("UserConnection");
+
                         break;
                 }
             } else {
-                echo "Different password ";
+                $password_message = "Different password ";
             }
         } else {
-            echo "Wrong username";
+            $username_message = "username trop court";
         }
+    } else {
+        $email_message = "this email is not a valid email address";
     }
 }
 
 // Aa1aza2aa
 $title = 'Inscription';
 
-render('page/inscription', compact('title'));
+if (empty($password_message)) {
+    $password_message = "";
+}
+if (empty($username_message)) {
+    $username_message = "";
+}
+if (empty($email_message)) {
+    $email_message = "";
+}
+render('page/inscription', compact('title', 'password_message', 'username_message', 'email_message'));
 
 // Sanitize de l'espace
 // Checkbox

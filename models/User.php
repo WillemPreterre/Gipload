@@ -65,7 +65,6 @@ class User
         $details = $stmt->fetch();
         pretty_print_r($details);
         return $details;
-
     }
 
     public function __set($property, $value)

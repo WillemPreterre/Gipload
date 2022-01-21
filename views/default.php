@@ -13,8 +13,10 @@
 </head>
 
 
-<?php pretty_print_r($_COOKIE);
+<?php 
 if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
+<?php pretty_print_r($_COOKIE); ?>
+
     <header class="color--black">
         <nav>
             <h1 class="nav_title"><a href="../index.php">Gipload</a></h1>
@@ -44,10 +46,10 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
             </div>
 
         </nav>
-        <div class="deroulant">
+        <!-- <div class="deroulant">
             <a href="">Profile</a>
             <a href="" >Log out</a>
-        </div>
+        </div> -->
     </header>
 <?php endif; ?>
 
