@@ -7,7 +7,7 @@
                 <div class="form_field">
                     <label require class="color--green" for="username">Username:</label>
                     <input class="form_input" type="text" id="username" name="username">
-                <?php echo $username_message ?>
+                    <?php echo $username_message ?>
                 </div>
                 <div class="form_field">
                     <label class="color--orange" for="email">E-mail:</label>
@@ -15,9 +15,12 @@
                     <?php echo $email_message ?>
                 </div>
                 <div class="form_field">
-                    <label class="color--blue" for="password">Password:</label>
+                    <label class="color--blue" for="password">Password: <i onclick="popUp" class="fas fa-exclamation-triangle">
+                            <span class="popuptext" id="myPopup">8lettres,1 uppercase, 1 lowercase, 1 number</span></i>
+                    </label>
+
                     <input class="form_input" type="password" id="password" name="password">
-                    <?php 
+                    <?php
                     echo $password_message ?>
                 </div>
                 <div class="form_field">

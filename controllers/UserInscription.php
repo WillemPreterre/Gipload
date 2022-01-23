@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Extract all the name in the form can use it to take the data from form
     extract($_POST);
     // print_r($_POST);
-
+    pretty_print_r($_COOKIE);
     // Get all the data and put it on a var
     $username = $_POST["username"];
     $email = $_POST["email"];

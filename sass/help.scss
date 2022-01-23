@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+// ---------------------------------------------------
+
+//                    @@@Color for css
+
+// ---------------------------------------------------
+
 $red: #ff3535;
 $black: #000000;
 $grey: #707070;
@@ -10,7 +16,11 @@ $pink: #ff3b97;
 $blue: #00d2ff;
 $orange: #ff6e00;
 $green: #00ffa2;
+// ---------------------------------------------------
 
+//                    @@@color for html
+
+// ---------------------------------------------------
 $colours: (
     red: #ff3535,
     black: #000000,
@@ -24,10 +34,12 @@ $colours: (
     green: #00ffa2,
 );
 
-//
-//        @@@header
-//
 
+// ---------------------------------------------------
+
+//                    @@@All
+
+// ---------------------------------------------------
 * {
     margin: 0px;
     font-family: "Roboto", sans-serif;
@@ -41,7 +53,11 @@ body {
 //
 //        @@@color
 //
+// ---------------------------------------------------
 
+//                    @@@Navbar
+
+// ---------------------------------------------------
 header {
     border: 1px, solid, $white;
 }
@@ -50,6 +66,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 10px;
+    position: sticky;
 
     .nav_link {
         display: flex;
@@ -70,6 +87,48 @@ nav {
     }
 }
 
+.toggle_btn  {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    span {
+        height: 3px;
+        background: $white;
+        width: 100%;
+        position: absolute;
+        top: 20px;
+        left: 0;
+
+    }
+    span:before {
+        content: '';
+        height: 3px;
+        background-color: $white;
+        width: 100%;
+        position: absolute;
+        top: -10px; 
+        left: 0;
+    }
+    span:after {
+        content: '';
+        height: 3px;
+        background-color: $white;
+        width: 100%;
+        position: absolute;
+        top: 10px;
+        left: 0;
+    }
+}
+
+// ---------------------------------------------------
+
+//                    @@@Form
+
+// ---------------------------------------------------
 .form {
     background-color: $black_grey;
     margin: 20px;
@@ -94,6 +153,10 @@ form {
         padding: auto;
         width: 85%;
         padding-bottom: 15px;
+        .form_field > img {
+            width: 10px;
+        }
+
         .form_icon_danger {
             width: 32px;
             height: 32px;
@@ -126,28 +189,32 @@ form {
         padding: 0px;
     }
 }
+#myPopup {
+    font-size: 13px;
+}   
+// ---------------------------------------------------
 
+//                    @@@Icone
+
+// ---------------------------------------------------
 .fa-user {
     font-size: 30px;
 }
-.deroulant > a {
-    display: block;
-    width: auto;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 20px;
-    text-decoration: none;
-    transform: translate(-1000px, 0);
-    margin: 1px;
-    background-color: #00d2ff;
-    transition: all 0.5s ease;;
 
-}
-#ch:checked+nav {
-    transform: translate(0, 0);
-    transition: all 0.5s ease;;
+// .deroulant > a {
+//     display: block;
+//     width: auto;
+//     text-align: center;
+//     box-sizing: border-box;
+//     padding: 20px;
+//     text-decoration: none;
+//     transform: translate(-1000px, 0);
+//     margin: 1px;
+//     background-color: #00d2ff;
+//     transition: all 0.5s ease;;
 
-}
+// }
+
 
 //création all color
 @each $colour, $hex in $colours {

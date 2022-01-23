@@ -1,12 +1,17 @@
 <?php
 require_once('../others/utils.php');
+require_once('../models/Gif.php');
 
- if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    pretty_print_r($_FILES);
-}  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    extract($_POST);
 
-
+    $categorie_post = $_POST["form_gifCategorie"];
+    $categorie = new Gif("", "", 0, 0, $categorie_post);
+    $categorie->getCategorie();
+}
 $title = ('Gif upload');
 
-render('page/uploadGIF', compact('title'));
+$categorie = new Gif("", "", 0, 0, 0);
+$categorieSelectAll = $categorie->getCategorie();
+render('page/uploadGIF', compact('title', 'categorieSelectAll'));

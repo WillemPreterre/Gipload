@@ -21,7 +21,7 @@ class Gif
     private PDO $db;
 
     // Créer l'objet
-    public function __construct($gif_name, $gif_url, $gif_size, $user_id)
+    public function __construct($gif_name, $gif_url, $gif_size, $user_id, $category_id)
     {
         $this->gif_name = $gif_name;
         // $this->gif_date = date('y.m.d');
@@ -30,7 +30,7 @@ class Gif
         $this->gif_like = 0;
         $this->gif_view = 0;
         $this->gif_download = 0;
-        $this->category_id = 1;
+        $this->category_id = $category_id;
         $this->user_id = $user_id;
 
 
@@ -60,11 +60,19 @@ class Gif
         return $sth;
     }
 
-    public function getInformation($id) {
-        $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_id = ?");
+    public function getAllGifFromUser($id) {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM GIF WHERE user_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetch();
         pretty_print_r($details);
+        return $details;
+    }
+
+    public function getCategorie() {
+        $stmt = Database::connectDB()->prepare("SELECT category_id,category_name FROM Category");
+        $stmt->execute([]);
+        $details = $stmt->fetchAll();
+        // pretty_print_r($details);
         return $details;
     }
 

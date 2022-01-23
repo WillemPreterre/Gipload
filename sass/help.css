@@ -21,6 +21,8 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 20px 10px;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 nav .nav_link {
@@ -48,6 +50,45 @@ nav .nav_link a {
 
 nav .nav_link a:nth-child(3) {
   background-color: #ff3b97;
+}
+
+.toggle_btn {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  float: right;
+  margin-top: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.toggle_btn span {
+  height: 3px;
+  background: #ffffff;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+.toggle_btn span:before {
+  content: '';
+  height: 3px;
+  background-color: #ffffff;
+  width: 100%;
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+
+.toggle_btn span:after {
+  content: '';
+  height: 3px;
+  background-color: #ffffff;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 0;
 }
 
 .form {
@@ -80,6 +121,10 @@ form section > div {
   padding: auto;
   width: 85%;
   padding-bottom: 15px;
+}
+
+form section > div .form_field > img {
+  width: 10px;
 }
 
 form section > div .form_icon_danger {
@@ -127,31 +172,12 @@ form .form_link {
   padding: 0px;
 }
 
+#myPopup {
+  font-size: 13px;
+}
+
 .fa-user {
   font-size: 30px;
-}
-
-.deroulant > a {
-  display: block;
-  width: auto;
-  text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 20px;
-  text-decoration: none;
-  -webkit-transform: translate(-1000px, 0);
-          transform: translate(-1000px, 0);
-  margin: 1px;
-  background-color: #00d2ff;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#ch:checked + nav {
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 .BgColor--red {

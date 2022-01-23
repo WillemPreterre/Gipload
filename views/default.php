@@ -13,34 +13,38 @@
 </head>
 
 
-<?php 
+<?php
 if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
-<?php pretty_print_r($_COOKIE); ?>
+    <?php pretty_print_r($_COOKIE['name']); ?>
 
     <header class="color--black">
         <nav>
-            <h1 class="nav_title"><a href="../index.php">Gipload</a></h1>
+            <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name'] ?>">Gipload</a></h1>
             <div class="nav_link">
                 <a class="BgColor--blue" rel="stylesheet" href="../controllers/UserInscription.php">Register</a>
-                <a class="BgColor--blue" href="">Sign in</a>
-                <a id="btnMenu" rel="stylesheet" href="">About</a>
+                <a class="BgColor--blue" href="../controllers/UserConnection.php">Sign in</a>
+                <div class="toggle_btn">
+                    <span></span>
+                </div>
+
+                <div class="deroulant">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
             </div>
         </nav>
-        <!-- <div class="deroulant">
-            <a href="">Contact us</a>
-            <a href="">Privacy</a>
-            <a href="">How to upload a GIF</a>
-            <a href="">How to download a GIF</a>
-        </div> -->
+
     </header>
-    <?php else : ?>
+<?php else : ?>
 
     <header class="color--black">
         <nav>
-            <h1 class="nav_title"><a href="../index.php">Gipload</a></h1>
+        <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name']?>">Gipload</a></h1>
             <div class="nav_link">
                 <a class="BgColor--orange" href="">About</a>
-                <a class="BgColor--purple" rel="stylesheet" href="UserEdit.php?name=<?php echo $_COOKIE['name']?>">Upload</a>
+                <a class="BgColor--purple" rel="stylesheet" href="UserEdit.php?name=<?php echo $_COOKIE['name'] ?>">Upload</a>
                 <i role="button" class="fas fa-user"></i>
 
             </div>
