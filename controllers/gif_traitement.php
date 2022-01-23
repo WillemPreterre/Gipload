@@ -7,19 +7,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     extract($_POST);
     pretty_print_r($_POST);
-
+    // récupération post des valeurs 
     $categorie_name = $_POST["form_gifName"];
-    $hash_name = hash('md5',$categorie_name);
     $categorie_post = $_POST["form_gifCategorie"];
+
+    // sanitize 
+    $sanitize_name = Sanitize::text($categorie_name);
+
+    // hash name 
+    $hash_name = hash('md5',$sanitize_name);
     pretty_print_r($_FILES);
     
     pretty_print_r(basename($_FILES["gif_upload"]["name"]));
 
 
     $target_dir = "../assets/gifs/";
-    // $temp = explode(".", $_FILES["gif_upload"]["name"]);
-    // $newfilename = $hash_name;
-    // move_uploaded_file($_FILES["gif_upload"]["tmp_name"], $target_dir . $newfilename);
 
     $newfilename= date('dmYHis').str_replace(" ", "", basename($_FILES["gif_upload"]["name"]));
 
@@ -65,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // if everything is ok, try to upload file
     } else {
        
-            $newgif = new Gif($sanitize_name,$hash_name .'.gif', $_FILES["gif_upload"]["size"], $_COOKIE['name'], $categorie_post);
+            $newgif = new Gif($sanitize_name,$newfilename, $_FILES["gif_upload"]["size"], $_COOKIE['name'], $categorie_post);
             $newgif->addGif();
             echo'work';
     }
