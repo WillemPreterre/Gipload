@@ -15,3 +15,5 @@ pretty_print_r($user_edit);
 $title = 'Your profile';
 
 render('/page/user_edit',compact('title','user_edit'));
+
+// Fonctionnalité Désactivation du compte

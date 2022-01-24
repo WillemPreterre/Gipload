@@ -64,7 +64,7 @@ class Gif
         $stmt = Database::connectDB()->prepare("SELECT * FROM GIF WHERE user_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetchAll();
-        pretty_print_r($details);
+        // pretty_print_r($details);
         return $details;
     }
 
@@ -76,6 +76,14 @@ class Gif
         return $details;
     }
     
+    public function deleteGif($id) {
+        $stmt = Database::connectDB()->prepare("DELETE FROM Gif WHERE user_id = ?");
+        $stmt->execute([$id]);
+        $delete = $stmt->fetch();
+        // pretty_print_r($delete);
+        return $delete;
+    }
+
     public function __set($property, $value)
     {
         $this->$property = $value;

@@ -1,8 +1,8 @@
 <main>
 
-    <div class="form">
+    <div class="form_container">
         <h2 class="form_title">Inscription</h2>
-        <form class="form_champ" method="POST">
+        <form class="form" method="POST">
             <section>
                 <div class="form_field">
                     <label require class="color--green" for="username">Username:</label>

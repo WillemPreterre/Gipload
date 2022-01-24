@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
+//    font-family: 'Montserrat', sans-serif;
+//    font-family: 'Roboto', sans-serif;
 // ---------------------------------------------------
 
 //                    @@@Color for css
@@ -63,11 +65,13 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 10px;
-    position: sticky;
 
     .fa-user {
         margin: 0px 5px;
         font-size: 30px;
+    }
+    .fa-user:hover {
+        opacity: 80%;
     }
     &_link {
         display: flex;
@@ -127,6 +131,9 @@ header {
             border: 1px solid $grey;
         }
     }
+    a:hover {
+        opacity: 90%;
+    }
 }
 
 // ---------------------------------------------------
@@ -134,54 +141,67 @@ header {
 //                    @@@Form
 
 // ---------------------------------------------------
-.form {
+
+
+.form_container {
     background-color: $black_grey;
     margin: 20px;
-    &_title {
+    & .form_title {
         font-size: 30px;
         background-color: $grey;
         text-align: center;
         padding: 20px;
     }
 }
-
-form {
+.form {
     padding-bottom: 5px;
     padding-top: 25px;
     font-size: 20px;
 
-    section > div {
+    section > &_field {
         display: flex;
         flex-direction: column;
         margin: auto;
         padding: auto;
         width: 85%;
         padding-bottom: 15px;
-        .form_field > img {
-            width: 10px;
-        }
+    }
+    &_upload_message {
+        text-align: center;
+    }
+    &_describe {
+        text-align: center;
+    }
+    &_field > img {
+        width: 10px;
+    }
 
-        .form_icon_danger {
-            width: 32px;
-            height: 32px;
-        }
-        .form_btn {
-            padding: 10px;
-            font-size: 30px;
-            background-color: $purple;
-            border: none;
-        }
-        .form_input {
-            padding: 12px 20px;
-            margin: 8px 0;
-            border-radius: 10px;
-            color: $black !important;
+    &_icon_danger {
+        width: 32px;
+        height: 32px;
+    }
+    &_btn {
+        padding: 10px;
+        font-size: 30px;
+        background-color: $purple;
+        border: none;
+    }
+    &_input {
+        padding: 12px 20px;
+        margin: 8px 0;
+        border-radius: 10px;
+        color: $black;
+    }
+    &_input {
+        color: $black;
+    }
+    #form_gifCategorie {
+        color: $black;
+        & option {
+            color: $black;
         }
     }
-    .link_connect {
-        font-size: 18px;
-        padding: 2px;
-    }
+
     .form_checkbox {
         display: flex;
         align-items: center;
@@ -189,11 +209,20 @@ form {
         flex-direction: row;
         font-size: 13px;
     }
+    .link_connect {
+        font-size: 18px;
+        padding: 2px;
+    }
     .form_link {
         padding: 0px;
     }
 }
 
+.gifs_title {
+    margin: 20px;
+    font-size: 25px;
+    text-decoration: underline;
+}
 // ---------------------------------------------------
 
 //                    @@@Gifs
@@ -209,7 +238,7 @@ form {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-basis: 45%; 
+        flex-basis: 45%;
         margin: 0 5px;
         &_img {
             max-width: 100%;
@@ -224,6 +253,13 @@ form {
 
 // ---------------------------------------------------
 
+$fonts: (
+    font-title: 'Montserrat',
+    font-text: 'Roboto'
+);
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Roboto', sans-serif;
+
 //création all color
 @each $colour, $hex in $colours {
     .BgColor--#{$colour} {
@@ -233,6 +269,13 @@ form {
         color: $hex;
     }
 }
+@each $font, $fon in $fonts {
+    .Font--#{$font} {
+        font-family: $fon, sans-serif;
+    }
+
+}
+
 
 //création all font-size
 @for $i from 1 through 5 {

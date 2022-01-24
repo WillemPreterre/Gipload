@@ -1,8 +1,8 @@
 <main>
 
-    <div class="form">
+    <div class="form_container">
         <h2 class="form_title">Connection</h2>
-        <form class="form_champ" method="POST" action="">
+        <form class="form" method="POST" action="">
             <section>
 
                 <div class="form_field">
