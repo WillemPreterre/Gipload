@@ -16,7 +16,7 @@
                 </div>
                 <div class="form_field">
                     <label class="color--blue" for="password">Password: <i onclick="popUp" class="fas fa-exclamation-triangle">
-                            <span class="popuptext" id="myPopup">8lettres,1 uppercase, 1 lowercase, 1 number</span></i>
+                            <span class="popuptext" id="myPopup">8 lettres,1 uppercase, 1 lowercase, 1 number</span></i>
                     </label>
 
                     <input class="form_input" type="password" id="password" name="password">

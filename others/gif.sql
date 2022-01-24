@@ -60,13 +60,6 @@ CREATE TABLE `User` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `User` (`user_id`, `user_name`, `user_email`, `user_password`, `user_createdate`, `user_editdate`) VALUES (1, 'Eduardo', 'keanu51@hotmail.com', 'Cum quo sit.', '1972-03-20', '1993-04-09');
-INSERT INTO `User` (`user_id`, `user_name`, `user_email`, `user_password`, `user_createdate`, `user_editdate`) VALUES (2, 'Katelin', 'marion.bosco@yahoo.com', 'Architecto nam.', '2005-04-29', '1970-01-13');
-INSERT INTO `User` (`user_id`, `user_name`, `user_email`, `user_password`, `user_createdate`, `user_editdate`) VALUES (3, 'Ezequiel', 'kwiegand@yahoo.com', 'Eligendi nisi.', '2007-11-05', '2020-07-10');
-INSERT INTO `User` (`user_id`, `user_name`, `user_email`, `user_password`, `user_createdate`, `user_editdate`) VALUES (4, 'Jaylan', 'audie67@yahoo.com', 'Est similique.', '1981-01-17', '1983-12-09');
-INSERT INTO `User` (`user_id`, `user_name`, `user_email`, `user_password`, `user_createdate`, `user_editdate`) VALUES (5, 'Lisandro', 'dschroeder@hotmail.com', 'Enim et est ut.', '2021-10-24', '1996-01-16');
-
-
-
 
 
 #

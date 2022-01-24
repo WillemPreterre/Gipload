@@ -8,31 +8,32 @@
     <title><?= $title ?></title>
     <link href="../sass/help.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/998854ecdc.js" crossorigin="anonymous"></script>
-    <script src="../assets/js/script.js"></script>
+
 
 </head>
 
 
 <?php
 if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
-    <?php pretty_print_r($_COOKIE['name']); ?>
+    <?php
+    // pretty_print_r($_COOKIE['name']);
+    ?>
 
     <header class="color--black">
-        <nav>
+        <nav class="nav">
             <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name'] ?>">Gipload</a></h1>
             <div class="nav_link">
                 <a class="BgColor--blue" rel="stylesheet" href="../controllers/UserInscription.php">Register</a>
                 <a class="BgColor--blue" href="../controllers/UserConnection.php">Sign in</a>
-                <div class="toggle_btn">
-                    <span></span>
-                </div>
+                <a id="btn_about" class="BgColor--orange">About</a>
+            </div>
 
-                <div class="deroulant">
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
+            <div class="deroulantAbout">
+                <a class="BgColor--pink" href="#">Contact us</a>
+                <a class="BgColor--purple" href="#">Privacy</a>
+                <a class="BgColor--orange" href="#">How to upload a GIF</a>
+                <a class="BgColor--orange" href="#">How to download a GIF</a>
+                <div class="activeAbout"></div>
             </div>
         </nav>
 
@@ -40,20 +41,31 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
 <?php else : ?>
 
     <header class="color--black">
-        <nav>
-        <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name']?>">Gipload</a></h1>
+        <nav class="nav">
+            <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name'] ?>">Gipload</a></h1>
             <div class="nav_link">
-                <a class="BgColor--orange" href="">About</a>
-                <a class="BgColor--purple" rel="stylesheet" href="UserEdit.php?name=<?php echo $_COOKIE['name'] ?>">Upload</a>
-                <i role="button" class="fas fa-user"></i>
-
+                <a id="btn_about" class="BgColor--orange">About</a>
+                <a class="BgColor--purple" rel="stylesheet" href="Gifupload.php">Upload</a>
+                <i id="btn_profile" role="button" class="fas fa-user"></i>
             </div>
 
+            <div class="deroulantAbout">
+            <a class="BgColor--pink" href="#">Contact us</a>
+                <a class="BgColor--purple" href="#">Privacy</a>
+                <a class="BgColor--orange" href="#">How to upload a GIF</a>
+                <a class="BgColor--orange" href="#">How to download a GIF</a>
+
+                <div class="activeAbout"></div>
+            </div>
+
+            <div class="deroulantProfile">
+                <a class="BgColor--orange" href="UserEdit.php?name=<?php echo $_COOKIE['name'] ?>">Profile</a>
+                <a class="BgColor--blue" href="userGif.php">Your Gif's</a>
+                <a class="BgColor--pink" href="">Log out</a>
+                <div class="activeProfile"></div>
+            </div>
         </nav>
-        <!-- <div class="deroulant">
-            <a href="">Profile</a>
-            <a href="" >Log out</a>
-        </div> -->
+
     </header>
 <?php endif; ?>
 
@@ -61,6 +73,8 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
     <main>
         <?= $content ?>
     </main>
+    <script src="../assets/js/script.js"></script>
+
 </body>
 
 </html>

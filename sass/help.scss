@@ -34,7 +34,6 @@ $colours: (
     green: #00ffa2,
 );
 
-
 // ---------------------------------------------------
 
 //                    @@@All
@@ -62,68 +61,76 @@ header {
     border: 1px, solid, $white;
 }
 
-nav {
+.nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 10px;
     position: sticky;
 
-    .nav_link {
+    &_link {
         display: flex;
         justify-content: center;
         align-items: center;
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            padding: 9px;
+            margin-right: 3px;
+            margin-left: 3px;
+        }
+
     }
-    .nav_title {
+    &_title {
         font-size: 30px;
     }
-    .nav_link a {
-        text-decoration: none;
-        font-size: 18px;
-        padding: 9px;
-        margin-right: 10px;
+
+
+    .deroulantProfile {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        right: 0;
+
+        &.activeProfile {
+            display: flex;
+        }
+
+        & > a {
+            width: auto;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+            text-decoration: none;
+            border: 1px solid $grey;
+        }
     }
-    .nav_link a:nth-child(3) {
-        background-color: $pink;
+    .deroulantAbout {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        right: 0;
+
+        &.activeAbout {
+            display: flex;
+        }
+
+        & > a {
+            width: auto;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+            text-decoration: none;
+            border: 1px solid $grey;
+        }
     }
 }
-
-.toggle_btn  {
-    height: 30px;
-    width: 30px;
-    position: relative;
-    float: right;
-    margin-top: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    span {
-        height: 3px;
-        background: $white;
-        width: 100%;
-        position: absolute;
-        top: 20px;
-        left: 0;
-
-    }
-    span:before {
-        content: '';
-        height: 3px;
-        background-color: $white;
-        width: 100%;
-        position: absolute;
-        top: -10px; 
-        left: 0;
-    }
-    span:after {
-        content: '';
-        height: 3px;
-        background-color: $white;
-        width: 100%;
-        position: absolute;
-        top: 10px;
-        left: 0;
-    }
+.fa-user {
+    margin: 0px 5px;
 }
-
 // ---------------------------------------------------
 
 //                    @@@Form
@@ -132,13 +139,12 @@ nav {
 .form {
     background-color: $black_grey;
     margin: 20px;
-    .form_title {
+    &_title {
         font-size: 30px;
         background-color: $grey;
         text-align: center;
         padding: 20px;
     }
-
 }
 
 form {
@@ -189,9 +195,7 @@ form {
         padding: 0px;
     }
 }
-#myPopup {
-    font-size: 13px;
-}   
+
 // ---------------------------------------------------
 
 //                    @@@Icone
@@ -200,21 +204,6 @@ form {
 .fa-user {
     font-size: 30px;
 }
-
-// .deroulant > a {
-//     display: block;
-//     width: auto;
-//     text-align: center;
-//     box-sizing: border-box;
-//     padding: 20px;
-//     text-decoration: none;
-//     transform: translate(-1000px, 0);
-//     margin: 1px;
-//     background-color: #00d2ff;
-//     transition: all 0.5s ease;;
-
-// }
-
 
 //création all color
 @each $colour, $hex in $colours {
@@ -234,3 +223,24 @@ form {
         width: 10px * $i;
     }
 }
+
+// .deroulant {
+//     display: none;
+//     flex-direction: column;
+//     position: absolute;
+//     left: 0;
+//     top: 80px;
+//     right: 0;
+
+//     &.active {
+//         display: flex;
+//     }
+
+//     & > a {
+//         width: auto;
+//         text-align: center;
+//         box-sizing: border-box;
+//         padding: 20px;
+//         text-decoration: none;
+//         border: 1px solid $grey;
+//     }

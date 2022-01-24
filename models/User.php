@@ -53,7 +53,7 @@ class User
         $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_name= ?");
         $stmt->execute([$username]);
         $users = $stmt->fetch();
-        pretty_print_r($users);
+        // pretty_print_r($users);
         return $users;
 
     }
@@ -63,7 +63,7 @@ class User
         $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetch();
-        pretty_print_r($details);
+        // pretty_print_r($details);
         return $details;
     }
 
