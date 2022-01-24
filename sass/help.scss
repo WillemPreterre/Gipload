@@ -68,7 +68,6 @@ header {
     .fa-user {
         margin: 0px 5px;
         font-size: 30px;
-
     }
     &_link {
         display: flex;
@@ -202,8 +201,20 @@ form {
 // ---------------------------------------------------
 
 .gifs {
-    &_gif {
-        
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    & .gif {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 45%; 
+        margin: 0 5px;
+        &_img {
+            max-width: 100%;
+            height: auto;
+        }
     }
 }
 
@@ -212,7 +223,6 @@ form {
 //                    @@@Icone
 
 // ---------------------------------------------------
-
 
 //création all color
 @each $colour, $hex in $colours {

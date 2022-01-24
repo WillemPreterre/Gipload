@@ -60,7 +60,7 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
 
             <div class="deroulantProfile">
                 <a class="BgColor--orange" href="UserEdit.php?name=<?php echo $_COOKIE['name'] ?>">Profile</a>
-                <a class="BgColor--blue" href="UserGif.php?name=<?php echo $_COOKIE['name'] ?>">Your Gif's</a>
+                <a class="BgColor--blue" href="UserGifs.php?name=<?php echo $_COOKIE['name'] ?>">Your Gif's</a>
                 <a class="BgColor--pink" href="">Log out</a>
                 <div class="activeProfile"></div>
             </div>

@@ -191,6 +191,40 @@ form .form_link {
   padding: 0px;
 }
 
+.gifs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gifs .gif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+  margin: 0 5px;
+}
+
+.gifs .gif_img {
+  max-width: 100%;
+  height: auto;
+}
+
 .BgColor--red {
   background-color: #ff3535;
 }
