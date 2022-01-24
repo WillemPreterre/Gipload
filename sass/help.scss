@@ -49,17 +49,15 @@ body {
     background-color: $black;
 }
 
-//
-//        @@@color
-//
+header {
+    border: 1px, solid, $white;
+}
+
 // ---------------------------------------------------
 
 //                    @@@Navbar
 
 // ---------------------------------------------------
-header {
-    border: 1px, solid, $white;
-}
 
 .nav {
     display: flex;
@@ -67,6 +65,11 @@ header {
     padding: 20px 10px;
     position: sticky;
 
+    .fa-user {
+        margin: 0px 5px;
+        font-size: 30px;
+
+    }
     &_link {
         display: flex;
         justify-content: center;
@@ -78,12 +81,10 @@ header {
             margin-right: 3px;
             margin-left: 3px;
         }
-
     }
     &_title {
         font-size: 30px;
     }
-
 
     .deroulantProfile {
         display: none;
@@ -128,9 +129,7 @@ header {
         }
     }
 }
-.fa-user {
-    margin: 0px 5px;
-}
+
 // ---------------------------------------------------
 
 //                    @@@Form
@@ -198,20 +197,28 @@ form {
 
 // ---------------------------------------------------
 
+//                    @@@Gifs
+
+// ---------------------------------------------------
+
+.gifs {
+    &_gif {
+        
+    }
+}
+
+// ---------------------------------------------------
+
 //                    @@@Icone
 
 // ---------------------------------------------------
-.fa-user {
-    font-size: 30px;
-}
+
 
 //création all color
 @each $colour, $hex in $colours {
     .BgColor--#{$colour} {
         background-color: $hex;
     }
-}
-@each $colour, $hex in $colours {
     .color--#{$colour} {
         color: $hex;
     }

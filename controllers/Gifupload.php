@@ -14,4 +14,4 @@ $title = ('Gif upload');
 
 $categorie = new Gif("", "", 0, 0, 0);
 $categorieSelectAll = $categorie->getCategorie();
-render('page/uploadGIF', compact('title', 'categorieSelectAll'));
+render('page/upload_gif', compact('title', 'categorieSelectAll'));

@@ -63,7 +63,7 @@ class Gif
     public function getAllGifFromUser($id) {
         $stmt = Database::connectDB()->prepare("SELECT * FROM GIF WHERE user_id = ?");
         $stmt->execute([$id]);
-        $details = $stmt->fetch();
+        $details = $stmt->fetchAll();
         pretty_print_r($details);
         return $details;
     }
@@ -75,7 +75,7 @@ class Gif
         // pretty_print_r($details);
         return $details;
     }
-
+    
     public function __set($property, $value)
     {
         $this->$property = $value;
