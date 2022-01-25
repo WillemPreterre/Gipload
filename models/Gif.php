@@ -67,6 +67,13 @@ class Gif
         // pretty_print_r($details);
         return $details;
     }
+    public function getOneGif($id) {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM GIF WHERE gif_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetch();
+        // pretty_print_r($details);
+        return $details;
+    }
 
     public function getCategorie() {
         $stmt = Database::connectDB()->prepare("SELECT category_id,category_name FROM Category");

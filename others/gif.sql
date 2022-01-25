@@ -42,6 +42,7 @@ INSERT INTO `Tag` (`tag_id`, `tag_name`) VALUES (3, 'panda');
 INSERT INTO `Tag` (`tag_id`, `tag_name`) VALUES (4, 'love');
 INSERT INTO `Tag` (`tag_id`, `tag_name`) VALUES (5, 'hello');
 
+-- Sanitize pour vérifier si il n'existe pas déja  explode pour séparateur 
 
 #
 # TABLE STRUCTURE FOR: User  

@@ -12,9 +12,9 @@
             <div class="gif">
 
 
-                <!--    <a  href="UserDeleteGif.php?id=<?php echo $user_gif["gif_id"] ?>"> -->
+                   <a  href="UserInfoGif.php?id=<?php echo $user_gif["gif_id"] ?>">
                 <img class="gif_img" value="<?php echo $user_gif["gif_id"] ?>" src="../../assets/gifs/<?php echo $user_gif["gif_url"] ?>">
-                <!-- </a> -->
+                </a>
             </div>
 
         <?php endforeach ?>

@@ -11,18 +11,20 @@
                 </div>
 
                 <div class="form_field">
-                    <label require class="color--orange" for="form_gifName">Name :</label>
-                    <input require class="form_input" type="text" id="form_gifName" name="form_gifName">
+                    <label class="color--orange" for="form_gifName">Name :</label>
+                    <input class="form_input" type="text" id="form_gifName" name="form_gifName" required>
                 </div>
 
                 <div class="form_field">
                     <label class="color--green" for="form_gifTag">Tag :</label>
-                    <input class="form_input" type="text" id="form_gifTag" name="form_gifTag">
+                    <span class="popuptext" id="myPopup">Space create new Tag</span></i>
+
+                    <input placeholder="One Tag minimum "class="form_input" type="text" id="form_gifTag" name="form_gifTag" required>
                 </div>
 
                 <div class="form_field">
                     <label class="color--blue" for="form_gifCategorie">Categorie :</label>
-                    <select name="form_gifCategorie" id="form_gifCategorie">
+                    <select required name="form_gifCategorie" id="form_gifCategorie">
                         <option value="">--Please choose an categorie--</option>
                         <?php
                         pretty_print_r($categorieSelectAll);

@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     case strpbrk($password, $lowercase) == false:
                         $password_message = "Need one LowerCase";
                         break;
-                    case strlen($password) <= 8:
-                        $password_message = "Need 8 Character";
+                    case strlen($password) <= 7:
+                        $password_message = "Need 8 Characters";
                         break;
 
                     default:

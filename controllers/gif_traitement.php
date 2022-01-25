@@ -2,6 +2,8 @@
 
 require_once('../models/Gif.php');
 require_once('../models/Sanitize.php');
+require_once('../models/Tag.php');
+require_once('../models/Link.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -9,10 +11,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     pretty_print_r($_POST);
     // récupération post des valeurs 
     $categorie_name = $_POST["form_gifName"];
+    $categorie_tag = $_POST["form_gifTag"];
     $categorie_post = $_POST["form_gifCategorie"];
 
+    // $sanitize_name = Sanitize::text($categorie_name);
+    // $sanitize_tag = Sanitize::text($categorie_tag);
+    if (
+        !empty($categorie_name) && !empty($categorie_tag)
+        // filter_var($categorie_name, FILTER_VALIDATE_BOOLEAN) == true
+        // &&
+        // filter_var($categorie_tag, FILTER_VALIDATE_BOOLEAN) == true
+    ) {
 
-    if (isset($categorie_name)) {
+        $explode_tag = explode(" ", $categorie_tag);
+
+
+        foreach ($explode_tag as $tag) {
+            pretty_print_r($tag);
+            $lower_tag = strtolower($tag);
+
+            $tagInsert = new Tag($lower_tag);
+            $tagInsert->verifTag($lower_tag);
+
+            print_r($tagInsert->verifTag($lower_tag));
+            // if() {
+                $tagInsert->addTag();
+            // }
+            // créer la ligne que si le tag n'est psa trouvé
+            // si pas trouvé on créer sinon on passe à la suite
+        }
+
+
+
+        // if (!isset($categorie_name)) {
         // sanitize 
         $sanitize_name = Sanitize::text($categorie_name);
 
@@ -72,15 +103,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newgif = new Gif($sanitize_name, $newfilename, $_FILES["gif_upload"]["size"], $_COOKIE['name'], $categorie_post);
             $newgif->addGif();
             echo 'work';
+            // Link::redirectTo("UserGifs.php?name=");
+
         }
 
 
         // gérer cas ou user non connecté
+        // sanitize
 
-        // obligé dee mettre un nom 
+
 
 
     } else {
-        echo 'no name ';
+        echo 'one line is empty ';
     }
 }
