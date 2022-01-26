@@ -67,6 +67,7 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
         </nav>
 
     </header>
+    
 <?php endif; ?>
 
 <body>

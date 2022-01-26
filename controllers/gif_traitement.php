@@ -23,26 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // filter_var($categorie_tag, FILTER_VALIDATE_BOOLEAN) == true
     ) {
 
-        $explode_tag = explode(" ", $categorie_tag);
-
-
-        foreach ($explode_tag as $tag) {
-            pretty_print_r($tag);
-            $lower_tag = strtolower($tag);
-
-            $tagInsert = new Tag($lower_tag);
-            $tagInsert->verifTag($lower_tag);
-
-            print_r($tagInsert->verifTag($lower_tag));
-            // if() {
-                $tagInsert->addTag();
-            // }
-            // créer la ligne que si le tag n'est psa trouvé
-            // si pas trouvé on créer sinon on passe à la suite
-        }
-
-
-
         // if (!isset($categorie_name)) {
         // sanitize 
         $sanitize_name = Sanitize::text($categorie_name);
@@ -102,6 +82,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $newgif = new Gif($sanitize_name, $newfilename, $_FILES["gif_upload"]["size"], $_COOKIE['name'], $categorie_post);
             $newgif->addGif();
+
+
+            $explode_tag = explode(" ", $categorie_tag);
+
+            foreach ($explode_tag as $tag) {
+                pretty_print_r($tag);
+                $lower_tag = strtolower($tag);
+
+                $tagInsert = new Tag($lower_tag, 0, 0);
+                $tagGet = $tagInsert->verifTag($lower_tag);
+
+                // print_r($tagGet['tag_id']);
+
+                if (!$tagInsert->verifTag($lower_tag)) {
+                    // echo "Tag Trouvé";
+                    echo "Tag Pas Trouvé";
+                    $tagInsert->addTag();
+                    $tagGet = $tagInsert->verifTag($lower_tag);
+                    // $tagGetId = $tagGet['tag_id'];
+                }
+
+
+
+                $gifId = new Gif("", "", 0, 0, 0);
+                $gifAllIdGet = $gifId->getAllIdForGetTag($newfilename);
+
+                pretty_print_r($gifAllIdGet['gif_id']);
+                // var_dump($tagGet['tag_id']);
+
+                $allId = new Tag("", $gifAllIdGet['gif_id'], intval($tagGet['tag_id']));
+
+                $allId->addTagInGetTag();
+            }
             echo 'work';
             // Link::redirectTo("UserGifs.php?name=");
 

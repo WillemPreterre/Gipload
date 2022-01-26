@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
 
 //    font-family: 'Montserrat', sans-serif;
 //    font-family: 'Roboto', sans-serif;
@@ -142,7 +142,6 @@ header {
 
 // ---------------------------------------------------
 
-
 .form_container {
     background-color: $black_grey;
     margin: 20px;
@@ -254,8 +253,8 @@ header {
 // ---------------------------------------------------
 
 $fonts: (
-    font-title: 'Montserrat',
-    font-text: 'Roboto'
+    font-title: "Montserrat",
+    font-text: "Roboto",
 );
 // font-family: 'Montserrat', sans-serif;
 // font-family: 'Roboto', sans-serif;
@@ -273,9 +272,7 @@ $fonts: (
     .Font--#{$font} {
         font-family: $fon, sans-serif;
     }
-
 }
-
 
 //création all font-size
 @for $i from 1 through 5 {
@@ -284,23 +281,27 @@ $fonts: (
     }
 }
 
-// .deroulant {
-//     display: none;
-//     flex-direction: column;
-//     position: absolute;
-//     left: 0;
-//     top: 80px;
-//     right: 0;
+// ---------------------------------------------------
 
-//     &.active {
-//         display: flex;
-//     }
+//                    @@@poppup
 
-//     & > a {
-//         width: auto;
-//         text-align: center;
-//         box-sizing: border-box;
-//         padding: 20px;
-//         text-decoration: none;
-//         border: 1px solid $grey;
-//     }
+// ---------------------------------------------------
+
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &_message {
+        &_title {
+        }
+
+        &_text {
+        }
+
+        &_btn {
+        }
+        &_gif {
+        }
+    }
+}

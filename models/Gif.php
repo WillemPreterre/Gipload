@@ -37,22 +37,14 @@ class Gif
         $this->db = Database::connectDB();
     }
 
-    // public function getAllUser()
-    // {
-    //     $sth = Database::connectDB()->prepare("SELECT * FROM User");
-    //     $sth->execute();
-
-    //     $result = $sth->fetchAll();
-    //     return $result;
-    // }
 
     public function addGif()
     {
         $sql = "INSERT INTO  Gif (gif_name, gif_date, gif_url, gif_size, gif_like, gif_view, gif_download, category_id, user_id)
-        VALUES (?,?,?,?,?,?,?,?,?)"; 
+        VALUES (?,?,?,?,?,?,?,?,?)";
         $sth = Database::connectDB()->prepare($sql)->execute([$this->gif_name, date('y.m.d'), $this->gif_url, $this->gif_size, $this->gif_like, $this->gif_view, $this->gif_download, $this->category_id, $this->user_id]);
         if ($sth == true) {
-            echo "Records added successfully.";
+            echo "Gifs added successfully.";
         } else {
             echo "error";
         }
@@ -60,36 +52,50 @@ class Gif
         return $sth;
     }
 
-    public function getAllGifFromUser($id) {
-        $stmt = Database::connectDB()->prepare("SELECT * FROM GIF WHERE user_id = ?");
+    public function getAllGifFromUser($id)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE user_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetchAll();
         // pretty_print_r($details);
         return $details;
     }
-    public function getOneGif($id) {
-        $stmt = Database::connectDB()->prepare("SELECT * FROM GIF WHERE gif_id = ?");
+
+    public function getOneGif($id)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE gif_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetch();
         // pretty_print_r($details);
         return $details;
     }
 
-    public function getCategorie() {
+    public function getCategorie()
+    {
         $stmt = Database::connectDB()->prepare("SELECT category_id,category_name FROM Category");
         $stmt->execute([]);
         $details = $stmt->fetchAll();
         // pretty_print_r($details);
         return $details;
     }
-    
-    public function deleteGif($id) {
-        $stmt = Database::connectDB()->prepare("DELETE FROM Gif WHERE user_id = ?");
+
+    public function deleteGif($id)
+    {
+        $stmt = Database::connectDB()->prepare("DELETE FROM Gif WHERE gif_id = ?");
         $stmt->execute([$id]);
         $delete = $stmt->fetch();
         // pretty_print_r($delete);
         return $delete;
     }
+
+    public function getAllIdForGetTag($url)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT gif_id FROM gif WHERE `gif_url` = ?");
+        $stmt->execute([$url]);
+        $details = $stmt->fetch();
+        return $details;
+    }
+
 
     public function __set($property, $value)
     {
@@ -101,3 +107,5 @@ class Gif
         $this->$property;
     }
 }
+$newGif = new Gif('Test', '/url', 0, 0, 0);
+pretty_print_r($newGif->getAllIdForGetTag('26012022074841insanity-crazy.gif'));
