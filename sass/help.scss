@@ -185,6 +185,9 @@ header {
         background-color: $purple;
         border: none;
     }
+    &_btn:hover {
+        opacity: 80%;
+    }
     &_input {
         padding: 12px 20px;
         margin: 8px 0;
@@ -207,10 +210,14 @@ header {
         justify-content: center;
         flex-direction: row;
         font-size: 13px;
+        margin-bottom: 20px;
     }
     .link_connect {
-        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
         padding: 2px;
+        margin-left: 25px;
     }
     .form_link {
         padding: 0px;
@@ -248,39 +255,29 @@ header {
 
 // ---------------------------------------------------
 
-//                    @@@Icone
+//                    @@@Gifs Info
 
 // ---------------------------------------------------
 
-$fonts: (
-    font-title: "Montserrat",
-    font-text: "Roboto",
-);
-// font-family: 'Montserrat', sans-serif;
-// font-family: 'Roboto', sans-serif;
 
-//création all color
-@each $colour, $hex in $colours {
-    .BgColor--#{$colour} {
-        background-color: $hex;
-    }
-    .color--#{$colour} {
-        color: $hex;
-    }
-}
-@each $font, $fon in $fonts {
-    .Font--#{$font} {
-        font-family: $fon, sans-serif;
-    }
-}
+.gif {
 
-//création all font-size
-@for $i from 1 through 5 {
-    .grid-#{$i} {
-        width: 10px * $i;
-    }
+        &_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            &_img {
+                width:350px;
+                margin: 30px;
+                border: 1px $grey solid;
+            }
+        }
+        &_title {
+            margin-left: 8px;
+            margin-top: 8px;
+        }
 }
-
 // ---------------------------------------------------
 
 //                    @@@poppup
@@ -291,9 +288,17 @@ $fonts: (
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     &_message {
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        background-color: $black_grey;
+        // flex-direction: column;
+
         &_title {
+            text-align: center;
+            margin: 30px;
         }
 
         &_text {
@@ -305,3 +310,42 @@ $fonts: (
         }
     }
 }
+
+#myPopup {
+    font-size: 10px;
+}
+    // ---------------------------------------------------
+
+    //                    @@@Icone
+
+    // ---------------------------------------------------
+
+    $fonts: (
+        font-title: "Montserrat",
+        font-text: "Roboto",
+    );
+    // font-family: 'Montserrat', sans-serif;
+    // font-family: 'Roboto', sans-serif;
+
+    //création all color
+    @each $colour, $hex in $colours {
+        .BgColor--#{$colour} {
+            background-color: $hex;
+        }
+        .color--#{$colour} {
+            color: $hex;
+        }
+    }
+    @each $font, $fon in $fonts {
+        .Font--#{$font} {
+            font-family: $fon, sans-serif;
+        }
+    }
+
+    //création all font-size
+    @for $i from 1 through 5 {
+        .grid-#{$i} {
+            width: 10px * $i;
+        }
+    }
+

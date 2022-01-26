@@ -10,13 +10,14 @@
                 <div class="popup_message_gif">
                     <img src="../../assets/img/happy-emotional.gif">
                 </div>
+                <div class="popup_message_btn">
+                    <a href="../../controllers/UserConnection.php">Log in now</a>
+                </div>
                 <div class="popup_message_text">
                     <span>All your data will never be use
                         somewhere else than you website</span>
                 </div>
-                <div class="popup_message_btn">
-                    <a></a>
-                </div>
+
             </div>
         </div>
     <?php else : ?>

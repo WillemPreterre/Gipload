@@ -16,8 +16,7 @@
 <?php
 if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
     <?php
-    // pretty_print_r($_COOKIE['name']);
-    ?>
+?>
 
     <header class="color--black">
         <nav class="nav">
@@ -61,7 +60,7 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
             <div class="deroulantProfile">
                 <a class="BgColor--orange" href="UserEdit.php?name=<?php echo $_COOKIE['name'] ?>">Profile</a>
                 <a class="BgColor--blue" href="UserGifs.php?name=<?php echo $_COOKIE['name'] ?>">Your Gif's</a>
-                <a class="BgColor--pink" href="">Log out</a>
+                <a class="BgColor--pink" href="../controllers/UserDeconnection.php">Log out</a>
                 <div class="activeProfile"></div>
             </div>
         </nav>

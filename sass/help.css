@@ -172,6 +172,10 @@ section > .form_field {
   border: none;
 }
 
+.form_btn:hover {
+  opacity: 80%;
+}
+
 .form_input {
   padding: 12px 20px;
   margin: 8px 0;
@@ -206,11 +210,20 @@ section > .form_field {
       -ms-flex-direction: row;
           flex-direction: row;
   font-size: 13px;
+  margin-bottom: 20px;
 }
 
 .form .link_connect {
-  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 15px;
   padding: 2px;
+  margin-left: 25px;
 }
 
 .form .form_link {
@@ -255,6 +268,58 @@ section > .form_field {
 .gifs .gif_img {
   max-width: 100%;
   height: auto;
+}
+
+.gif_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gif_container_img {
+  width: 350px;
+  margin: 30px;
+  border: 1px #707070 solid;
+}
+
+.gif_title {
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+.popup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.popup_message {
+  background-color: #1a1a1a;
+}
+
+.popup_message_title {
+  text-align: center;
+  margin: 30px;
+}
+
+#myPopup {
+  font-size: 10px;
 }
 
 .BgColor--red {
