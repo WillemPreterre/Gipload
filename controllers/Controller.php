@@ -222,4 +222,14 @@ class Controller
 
         render('/page/gif_info', compact('title', 'allInformationGif'));
     }
+
+    public function home()
+    {
+        $title = 'Gif page';
+        $categorie = new Gif("", "", 0, 0, 0);
+
+        $categorieSelectAll = $categorie->getCategorie();
+        
+        render('page/index', compact('title', 'categorieSelectAll'));
+    }
 }

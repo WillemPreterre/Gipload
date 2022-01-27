@@ -15,7 +15,7 @@ pretty_print_r($action);
 $page = $_GET['page'] ?? 'home';
 
 
-if ($page === 'home') {
+if ($page === 'x') {
     $title = 'Home';
     render('page/index', compact('title'));
 } 

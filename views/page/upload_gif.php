@@ -49,7 +49,6 @@
                         <select required name="form_gifCategorie" id="form_gifCategorie">
                             <option value="">--Please choose an categorie--</option>
                             <?php
-                            pretty_print_r($categorieSelectAll);
                             foreach ($categorieSelectAll as $categorieUnique) : ?>
                                 <option value="<?php echo $categorieUnique["category_id"] ?>"><?php echo $categorieUnique["category_name"] ?></option>
 
