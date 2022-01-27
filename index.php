@@ -29,7 +29,7 @@ else {
     $method_name = $page[0];
 
     if(method_exists($newUser,$method_name)) {
-        if ($method_name == "usergifs" || $method_name == "edit" ) {
+        if ($method_name == "usergifs" || $method_name == "edit" || $method_name == "gifinfo" ) {
             $newUser->$method_name($page[1]);
 
         }else {

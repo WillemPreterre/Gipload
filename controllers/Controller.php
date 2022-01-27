@@ -206,7 +206,20 @@ class Controller
         render('page/upload_gif', compact('title', 'categorieSelectAll'));
     }
 
-    public function gifuploading() {
-        
+    public function gifuploading()
+    {
+        render('page/gif_traitement');
+    }
+
+    public function gifinfo($id)
+    {
+
+        $info_gif = new Gif("", "", 0, 0, 0);
+
+        $allInformationGif = $info_gif->getOneGif($id);
+
+        $title = 'Your profile';
+
+        render('/page/gif_info', compact('title', 'allInformationGif'));
     }
 }

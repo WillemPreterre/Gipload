@@ -24,7 +24,7 @@
 
         <div class="form_container">
             <h2 class="form_title">Upload Gif</h2>
-            <form class="form" method="POST" enctype="multipart/form-data" action="../../controllers/gif_traitement.php">
+            <form class="form" method="POST" enctype="multipart/form-data" action="?page=gifuploading">
                 <span class="form_describe color--pink"> Find GIF and download here for all !</span>
                 <section>
                     <div class="form_field">

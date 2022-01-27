@@ -1,9 +1,9 @@
 <?php
 
-require_once('../models/Gif.php');
-require_once('../models/Sanitize.php');
-require_once('../models/Tag.php');
-require_once('../models/Link.php');
+require_once('./models/Gif.php');
+require_once('./models/Sanitize.php');
+require_once('./models/Tag.php');
+require_once('./models/Link.php');
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // pretty_print_r(basename($_FILES["gif_upload"]["name"]));
 
 
-        $target_dir = "../assets/gifs/";
+        $target_dir = "./assets/gifs/";
 
         $newfilename = date('dmYHis') . str_replace(" ", "", basename($_FILES["gif_upload"]["name"]));
 
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $allId->addTagInGetTag();
             }
             echo 'work';
-            Link::redirectTo("?page=usergift/".$_COOKIE['name'] );
+            Link::redirectTo("?page=usergifs/".$_COOKIE['name'] );
 
         }
 
