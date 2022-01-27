@@ -34,7 +34,7 @@
                     <input class="form_btn submitCreateAccount" disabled class="form_btn" type="submit" value="Submit">
 
                 </div>
-                <div class="form_link"> <a class="link_connect" rel="stylesheet" href="../controllers/userConnection.php">Se connecter</a></div>
+                <div class="form_link"> <a class="link_connect" rel="stylesheet" href="/?page=connection">Se connecter</a></div>
 
 
             </section>

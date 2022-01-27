@@ -57,7 +57,7 @@ class Controller
                             default:
                                 $inscription = new User(0, $username, $sanitize_email, $password_hash);
                                 $inscription->inscription();
-                                Link::redirectTo("/?name=connection");
+                                Link::redirectTo("/?page=connection");
 
                                 break;
                         }
@@ -149,11 +149,12 @@ class Controller
                 if (
                     isset($sanitaze_username)  && isset($sanitaze_password)
                 ) {
+
                     //initialisation des variables pour les cookies
                     $connection = new User(0, '', '', '');
                     $user_name_verif = $connection->connection($sanitaze_username);
                     // condition pour vérif si erreur dans les champs et pour set le cookie
-                    if (password_verify($password_post, $user_name_verif['user_password'])) {
+                    if (!empty($password) && password_verify($password_post, $user_name_verif['user_password'])) {
                         setcookie("name", $user_name_verif['user_id'], time() + (86400 * 90), "/"); // 86400 = 1 day 
 
                         Link::redirectTo("/?page=home");
@@ -186,4 +187,5 @@ class Controller
     Link::redirectTo("/?page=home");
     
     }
+    
 }

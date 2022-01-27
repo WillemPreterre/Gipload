@@ -1,12 +1,14 @@
 <?php 
 
 require_once('../models/User.php');
+require_once('../models/Link.php');
 
-pretty_print_r($_POST);
+$usercookie = $_COOKIE['name'];
 $username_post = $_POST['username'];
 
+$newUser = new User(0,"","","");
 
+$newUser->modifyUsername($username_post , $_COOKIE['name']);
 
-$newUser = new User(0, "","","");
+Link::redirectTo("/?page=edit/".$usercookie  );
 
-$newUser->modifyUsername($username_post , 1);

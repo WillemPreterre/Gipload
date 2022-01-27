@@ -20,7 +20,7 @@
                     <input class="form_btn" type="submit" value="Submit" href="/?name=<?php echo $_COOKIE['user']  ?>">
                 </div>
                 <div class="form_link">
-                    <a class="link_connect" rel="stylesheet" href="/?name=inscription">Register now</a>
+                    <a class="link_connect" rel="stylesheet" href="/?page=inscription">Register now</a>
                     <a class="link_connect" rel="stylesheet" href="../controllers/UserInscription.php">Forgot your password</a>
 
                 </div>
