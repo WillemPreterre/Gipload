@@ -24,6 +24,7 @@ else {
     // $method_name = $page;
 
     $page = explode('/', $page);
+    
     // pretty_print_r($page);
     $method_name = $page[0];
 
@@ -33,7 +34,6 @@ else {
 
         }else {
             $newUser->$method_name();
-
         }
     }else {
         // redirection vers la 404 

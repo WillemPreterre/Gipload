@@ -45,7 +45,6 @@ class Tag
         $sql = "INSERT INTO  Get_tag_for_gif (gif_id,tag_id)
         VALUES (?,?)";
         $sth = Database::connectDB()->prepare($sql)->execute([$this->gif_id, $this->tag_id]);
-        pretty_print_r($this);
         if ($sth == true) {
             echo "Tags added successfully in gettag.";
         } else {

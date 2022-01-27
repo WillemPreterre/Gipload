@@ -44,7 +44,7 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
             <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name'] ?>">Gipload</a></h1>
             <div class="nav_link">
                 <a id="btn_about" class="BgColor--orange">About</a>
-                <a class="BgColor--purple" rel="stylesheet" href="Gifupload.php">Upload</a>
+                <a class="BgColor--purple" rel="stylesheet" href="?page=gifupload">Upload</a>
                 <i id="btn_profile" role="button" class="fas fa-user"></i>
             </div>
 

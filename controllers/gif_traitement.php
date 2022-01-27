@@ -5,10 +5,11 @@ require_once('../models/Sanitize.php');
 require_once('../models/Tag.php');
 require_once('../models/Link.php');
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     extract($_POST);
-    pretty_print_r($_POST);
+    // pretty_print_r($_POST);
     // récupération post des valeurs 
     $categorie_name = $_POST["form_gifName"];
     $categorie_tag = $_POST["form_gifTag"];
@@ -29,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // hash name 
         $hash_name = hash('md5', $sanitize_name);
-        pretty_print_r($_FILES);
+        // pretty_print_r($_FILES);
 
-        pretty_print_r(basename($_FILES["gif_upload"]["name"]));
+        // pretty_print_r(basename($_FILES["gif_upload"]["name"]));
 
 
         $target_dir = "../assets/gifs/";
@@ -87,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $explode_tag = explode(" ", $categorie_tag);
 
             foreach ($explode_tag as $tag) {
-                pretty_print_r($tag);
+                // pretty_print_r($tag);
                 $lower_tag = strtolower($tag);
 
                 $tagInsert = new Tag($lower_tag, 0, 0);
@@ -108,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $gifId = new Gif("", "", 0, 0, 0);
                 $gifAllIdGet = $gifId->getAllIdForGetTag($newfilename);
 
-                pretty_print_r($gifAllIdGet['gif_id']);
+                // pretty_print_r($gifAllIdGet['gif_id']);
                 // var_dump($tagGet['tag_id']);
 
                 $allId = new Tag("", $gifAllIdGet['gif_id'], intval($tagGet['tag_id']));
@@ -116,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $allId->addTagInGetTag();
             }
             echo 'work';
-            // Link::redirectTo("UserGifs.php?name=");
+            Link::redirectTo("?page=usergift/".$_COOKIE['name'] );
 
         }
 

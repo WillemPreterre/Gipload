@@ -35,7 +35,7 @@ class Controller
 
             if (filter_var($sanitize_email, FILTER_VALIDATE_EMAIL) == true) {
                 if (isset($sanitize_email, $sanitize_username) && strlen($sanitize_username) >= 3) {
-                    if (!empty($password))  {
+                    if (!empty($password)) {
                         switch ($password) {
                             case strpbrk($password, $uppercase) == NULL:
                                 $password_message = "Need one UpperCase";
@@ -50,10 +50,10 @@ class Controller
                                 $password_message = "Need 8 Characters";
                                 break;
 
-                            case $password != $validate_password :
+                            case $password != $validate_password:
                                 $password_message = "Different password";
                                 break;
- 
+
                             default:
                                 $inscription = new User(0, $username, $sanitize_email, $password_hash);
                                 $inscription->inscription();
@@ -106,7 +106,7 @@ class Controller
 
         $title = 'Your GIF';
 
-        render('/page/user_gifs', compact('title', 'user_edit', 'user_gifs'));
+        render('page/user_gifs', compact('title', 'user_edit', 'user_gifs'));
     }
 
     public function edit($id)
@@ -119,7 +119,7 @@ class Controller
 
         $title = 'Your profile';
 
-        render('/page/user_edit', compact('title', 'user_edit'));
+        render('page/user_edit', compact('title', 'user_edit'));
 
         // Fonctionnalité Désactivation du compte
     }
@@ -180,12 +180,33 @@ class Controller
         // Enlevé le msg quand mauvais 
     }
 
-    public function deconnection() {
-        
-    setcookie("name", '', time() -700, '/');
+    public function deconnection()
+    {
 
-    Link::redirectTo("/?page=home");
-    
+        setcookie("name", '', time() - 700, '/');
+
+        Link::redirectTo("/?page=home");
     }
-    
+
+    public function gifupload()
+    {
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            extract($_POST);
+
+            $categorie_post = $_POST["form_gifCategorie"];
+            $categorie = new Gif("", "", 0, 0, $categorie_post);
+            $categorie->getCategorie();
+        }
+        $title = ('Gif upload');
+
+        $categorie = new Gif("", "", 0, 0, 0);
+        $categorieSelectAll = $categorie->getCategorie();
+        render('page/upload_gif', compact('title', 'categorieSelectAll'));
+    }
+
+    public function gifuploading() {
+        
+    }
 }
