@@ -270,7 +270,7 @@ section > .form_field {
   height: auto;
 }
 
-.gif_container {
+.gif_view {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -286,10 +286,11 @@ section > .form_field {
           flex-direction: column;
 }
 
-.gif_container_img {
+.gif_view_img {
   width: 350px;
-  margin: 30px;
-  border: 1px #707070 solid;
+  border: 100px #707070 solid;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .gif_title {

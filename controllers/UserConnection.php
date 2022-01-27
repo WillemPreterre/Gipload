@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password_post, $user_name_verif['user_password'])) {
                 setcookie("name", $user_name_verif['user_id'], time() + (86400 * 90), "/"); // 86400 = 1 day 
 
-                Link::redirectTo("UserEdit");
+                Link::redirectTo("/?name=home");
             } else {
                 echo ('id or password incorrect');
             }

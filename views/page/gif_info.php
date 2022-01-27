@@ -6,11 +6,20 @@
 
         <div class="gif_container">
             <img class="gif_container_img" value="<?php echo $allInformationGif["gif_id"] ?>" src="../../assets/gifs/<?php echo $allInformationGif["gif_url"] ?>">
-            <div class="gif_container_tag">
+
+        </div>
+        <div class="gif_user">
+            <span>user</span>
+        </div>
+
+        <div class="gif_btn">
+
+        </div>
+
+        <div class="gif_tag">
 
             <h3>Tags</h3>
-                
-            </div>
+
         </div>
     </div>
 

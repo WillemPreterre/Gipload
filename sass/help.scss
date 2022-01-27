@@ -259,24 +259,23 @@ header {
 
 // ---------------------------------------------------
 
-
 .gif {
+    &_view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &_img {
+            width: 350px;
+            border: 100px $grey solid;
+            box-sizing: border-box;
 
-        &_container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            &_img {
-                width:350px;
-                margin: 30px;
-                border: 1px $grey solid;
-            }
         }
-        &_title {
-            margin-left: 8px;
-            margin-top: 8px;
-        }
+    }
+    &_title {
+        margin-left: 8px;
+        margin-top: 8px;
+    }
 }
 // ---------------------------------------------------
 
@@ -301,51 +300,50 @@ header {
             margin: 30px;
         }
 
-        &_text {
-        }
+        // &_text {
+        // }
 
-        &_btn {
-        }
-        &_gif {
-        }
+        // &_btn {
+        // }
+        // &_gif {
+        // }
     }
 }
 
 #myPopup {
     font-size: 10px;
 }
-    // ---------------------------------------------------
+// ---------------------------------------------------
 
-    //                    @@@Icone
+//                    @@@Icone
 
-    // ---------------------------------------------------
+// ---------------------------------------------------
 
-    $fonts: (
-        font-title: "Montserrat",
-        font-text: "Roboto",
-    );
-    // font-family: 'Montserrat', sans-serif;
-    // font-family: 'Roboto', sans-serif;
+$fonts: (
+    font-title: "Montserrat",
+    font-text: "Roboto",
+);
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Roboto', sans-serif;
 
-    //création all color
-    @each $colour, $hex in $colours {
-        .BgColor--#{$colour} {
-            background-color: $hex;
-        }
-        .color--#{$colour} {
-            color: $hex;
-        }
+//création all color
+@each $colour, $hex in $colours {
+    .BgColor--#{$colour} {
+        background-color: $hex;
     }
-    @each $font, $fon in $fonts {
-        .Font--#{$font} {
-            font-family: $fon, sans-serif;
-        }
+    .color--#{$colour} {
+        color: $hex;
     }
-
-    //création all font-size
-    @for $i from 1 through 5 {
-        .grid-#{$i} {
-            width: 10px * $i;
-        }
+}
+@each $font, $fon in $fonts {
+    .Font--#{$font} {
+        font-family: $fon, sans-serif;
     }
+}
 
+//création all font-size
+@for $i from 1 through 5 {
+    .grid-#{$i} {
+        width: 10px * $i;
+    }
+}

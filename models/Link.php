@@ -6,7 +6,7 @@ class Link {
 
     public static function redirectTo($path)
     {
-        header('Location:' . $path . '.php');
+        header('Location:' . $path );
         exit();
     }
 

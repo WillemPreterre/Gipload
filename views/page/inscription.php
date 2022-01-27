@@ -18,7 +18,6 @@
                     <label class="color--blue" for="password">Password: <i onclick="popUp" class="fas fa-exclamation-triangle">
                             <span class="popuptext" id="myPopup">8 characters,1 uppercase, 1 lowercase, 1 number</span></i>
                     </label>
-
                     <input class="form_input" type="password" id="password" name="password">
                     <?php
                     echo $password_message ?>

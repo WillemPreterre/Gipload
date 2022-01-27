@@ -1,6 +1,6 @@
 <?php
 require_once('Database.php');
-require_once('../others/utils.php');
+require_once('./others/utils.php');
 
 class User
 {
@@ -34,7 +34,7 @@ class User
     public function inscription()
     {
         $sql = "INSERT INTO  User (user_name,user_email,user_password,user_createdate ,user_editdate)
-        VALUES (?,?,?,?,?)"; 
+        VALUES (?,?,?,?,?)";
         $sth = Database::connectDB()->prepare($sql)->execute([$this->username, $this->email, $this->password, date('y.m.d'), date('y.m.d')]);
         if ($sth == true) {
             echo "Records added successfully.";
@@ -46,26 +46,39 @@ class User
     }
 
 
-        // Prepare si il y a un ? query sinon query pas besoin de  execute
-      
-    public function connection($username) {
+    // Prepare si il y a un ? query sinon query pas besoin de  execute
+
+    public function connection($username)
+    {
         // setcookie($cookie_name, $cookie_value, time() + (86400 * 365), "/"); // 86400 = 1 day
         $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_name= ?");
         $stmt->execute([$username]);
         $users = $stmt->fetch();
         // pretty_print_r($users);
         return $users;
-
     }
 
 
-    public function getInformation($id) {
+    public function getInformation($id)
+    {
         $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetch();
         // pretty_print_r($details);
         return $details;
     }
+
+
+    public function modifyUsername($newName, $id)
+    {
+        $stmt = Database::connectDB()->prepare("UPDATE User SET user_name = ? WHERE user_id= ?");
+        $stmt->execute([$newName ,$id]);
+        $details = $stmt->fetch();
+        // pretty_print_r($details);
+        return $details;
+    }
+
+
 
     public function __set($property, $value)
     {

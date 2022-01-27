@@ -58,7 +58,7 @@ CREATE TABLE `User` (
   `user_createdate` date DEFAULT NULL,
   `user_editdate` date DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `User` (`user_id`, `user_name`, `user_email`, `user_password`, `user_createdate`, `user_editdate`) VALUES (1, 'Eduardo', 'keanu51@hotmail.com', 'Cum quo sit.', '1972-03-20', '1993-04-09');
 

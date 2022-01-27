@@ -17,10 +17,10 @@
                 </div>
 
                 <div class="form_field">
-                    <input class="form_btn" type="submit" value="Submit" href="user_edit.php?user_id=<?php echo $_COOKIE['user']  ?>">
+                    <input class="form_btn" type="submit" value="Submit" href="/?name=<?php echo $_COOKIE['user']  ?>">
                 </div>
                 <div class="form_link">
-                    <a class="link_connect" rel="stylesheet" href="../controllers/UserInscription.php">Register now</a>
+                    <a class="link_connect" rel="stylesheet" href="/?name=inscription">Register now</a>
                     <a class="link_connect" rel="stylesheet" href="../controllers/UserInscription.php">Forgot your password</a>
 
                 </div>

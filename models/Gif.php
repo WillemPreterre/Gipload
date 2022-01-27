@@ -4,7 +4,7 @@
 
 
 require_once('Database.php');
-require_once('../others/utils.php');
+require_once('./others/utils.php');
 
 class Gif
 {
@@ -107,5 +107,3 @@ class Gif
         $this->$property;
     }
 }
-$newGif = new Gif('Test', '/url', 0, 0, 0);
-pretty_print_r($newGif->getAllIdForGetTag('26012022074841insanity-crazy.gif'));

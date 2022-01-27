@@ -22,8 +22,8 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
         <nav class="nav">
             <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name'] ?>">Gipload</a></h1>
             <div class="nav_link">
-                <a class="BgColor--blue" rel="stylesheet" href="../controllers/UserInscription.php">Register</a>
-                <a class="BgColor--blue" href="../controllers/UserConnection.php">Sign in</a>
+                <a class="BgColor--blue" rel="stylesheet" href="?page=inscription">Register</a>
+                <a class="BgColor--blue" href="?page=connection">Sign in</a>
                 <a id="btn_about" class="BgColor--orange">About</a>
             </div>
 
@@ -58,9 +58,9 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
             </div>
 
             <div class="deroulantProfile">
-                <a class="BgColor--orange" href="UserEdit.php?name=<?php echo $_COOKIE['name'] ?>">Profile</a>
-                <a class="BgColor--blue" href="UserGifs.php?name=<?php echo $_COOKIE['name'] ?>">Your Gif's</a>
-                <a class="BgColor--pink" href="../controllers/UserDeconnection.php">Log out</a>
+                <a class="BgColor--orange" href="?page=edit/<?php echo $_COOKIE['name'] ?>">Profile</a>
+                <a class="BgColor--blue" href="?page=usergifs/<?php echo $_COOKIE['name'] ?>">Your Gif's</a>
+                <a class="BgColor--pink" href="?page=deconnection">Log out</a>
                 <div class="activeProfile"></div>
             </div>
         </nav>
