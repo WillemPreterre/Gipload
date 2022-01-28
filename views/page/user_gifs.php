@@ -1,6 +1,6 @@
 <main>
 
-    <h2 class="gifs_title color--pink"><?php echo $user_edit["user_name"]  ?></h2>
+    <h2 class="gifs_title color--pink"><?php echo $user_title["user_name"]  ?></h2>
 
     <div class="gifs">
 

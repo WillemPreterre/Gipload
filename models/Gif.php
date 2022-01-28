@@ -52,7 +52,7 @@ class Gif
         return $sth;
     }
 
-    public function getAllGifFromCategorieId($id)
+    public function getAllGifWithCategorieId($id)
     {
         $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE category_id = ?");
         $stmt->execute([$id]);
@@ -60,6 +60,7 @@ class Gif
         // pretty_print_r($details);
         return $details;
     }
+
     public function getAllGifWithUserId($id)
     {
         $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE user_id = ?");
@@ -69,23 +70,8 @@ class Gif
         return $details;
     }
 
-    public function getInformationCategorie($id)
-    {
-        $stmt = Database::connectDB()->prepare("SELECT * FROM Category WHERE category_id = ?");
-        $stmt->execute([$id]);
-        $details = $stmt->fetch();
-        // pretty_print_r($details);
-        return $details;
-    }
 
-    public function getAllGifFromCategorie($id)
-    {
-        $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE user_id = ?");
-        $stmt->execute([$id]);
-        $details = $stmt->fetchAll();
-        // pretty_print_r($details);
-        return $details;
-    }
+
     //méthode pour montrer page gif
     public function getOneGif($id)
     {

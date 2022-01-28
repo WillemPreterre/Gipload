@@ -9,31 +9,30 @@ require_once('./models/Link.php');
 
 class Controller
 {
-
+    //méthode pour inscrire l'user
     public function inscription()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Extract all the name in the form can use it to take the data from form
             extract($_POST);
-            // print_r($_POST);
-            // Get all the data and put it on a var
+            // Get all the post name and put it on a var
             $username = $_POST["username"];
             $email = $_POST["email"];
             $password = $_POST["password"];
             $validate_password = $_POST["validate_password"];
+
             //Sanitize
             $sanitize_email = Sanitize::email($email);
             $sanitize_username = Sanitize::text($username);
             $sanitize_password = Sanitize::text($password);
-            // pretty_print_r($password);
+
             //Patern pour trier et message d'erreur
             $uppercase = "AZERTYUIOPQSDFGHJKLMWXCVBN";
             $lowercase = "azertyuiopqsdfghjklmwxcvbn";
             $number = "1234567890";
             $password_hash = password_hash($sanitize_password, PASSWORD_BCRYPT);
 
-            //Condition Password  + email + username
-
+            //Condition Password  + email + username + si les deux mdp match ensemble
             if (filter_var($sanitize_email, FILTER_VALIDATE_EMAIL) == true) {
                 if (isset($sanitize_email, $sanitize_username) && strlen($sanitize_username) >= 3) {
                     if (!empty($password)) {
@@ -73,9 +72,8 @@ class Controller
             }
         }
 
-        // Aa1aza2aa
         $title = 'Inscription';
-
+        // permet d'envoyer un message d'erreur en dessous du champs 
         if (empty($password_message)) {
             $password_message = "";
         }
@@ -93,7 +91,7 @@ class Controller
     }
 
 
-
+    // méthode pour donner les infos de l'user sur la page edit
     public function edit($id)
     {
 
@@ -109,7 +107,7 @@ class Controller
         // Fonctionnalité Désactivation du compte
     }
 
-
+    //méthode pour connecter l'user
     public function connection()
     {
 
@@ -120,10 +118,12 @@ class Controller
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             extract($_POST);
+
+            //récupération des post name du form de connection
             $user_post = $_POST['username'];
             $password_post = $_POST['password'];
 
-            //Sanitize
+            //Sanitize des champs
             $sanitaze_username = Sanitize::text($user_post);
             $sanitaze_password = Sanitize::text($password_post);
 
@@ -165,6 +165,7 @@ class Controller
         // Enlevé le msg quand mauvais 
     }
 
+    //méthode pour déconnecter le user
     public function deconnection()
     {
 
@@ -173,41 +174,46 @@ class Controller
         Link::redirectTo("/?page=home");
     }
 
+    // méthode pour appeller les gifs d'une personne dans la page user_gifs
     public function usergifs($id)
     {
 
 
         // Get all gif from the user
-        $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifWithUserId($id);
+        $gif = new Gif('', '', 0, 0, 0);
+        $user_gifs = $gif->getAllGifWithUserId($id);
 
         //get information from the user
-        $edit = new User(0, '', '', '');
-        $user_edit = $edit->getInformation($id);
+        $user = new User(0, '', '', '');
+        $user_title = $user->getInformation($id);
 
 
         $title = 'Your GIF';
-
-        render('page/user_gifs', compact('title', 'user_edit', 'user_gifs'));
+        // on envoie dans html pour boucler les gifs 
+        render('page/user_gifs', compact('title', 'user_title', 'user_gifs'));
     }
+
+    //méthode qui va upload le gif
     public function gifupload()
     {
-
+        //on récupère les valeurs get du form de gifupload
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             extract($_POST);
 
             $categorie_post = $_POST["form_gifCategorie"];
+
             $categorie = new Gif("", "", 0, 0, $categorie_post);
             $categorie->getCategorie();
         }
         $title = ('Gif upload');
+            // récupère toutes les catégories pour boucler dans le html
 
         $categorie = new Gif("", "", 0, 0, 0);
         $categorieSelectAll = $categorie->getCategorie();
         render('page/upload_gif', compact('title', 'categorieSelectAll'));
     }
-
+    //méthode qui va permettre de faire le lien
     public function gifuploading()
     {
         render('page/gif_traitement');
@@ -216,10 +222,10 @@ class Controller
 
 
 
-
+    //méthode pour récupérer
     public function gifinfo($id)
     {
-        // Appelle Model
+        // Appelle objet
         $info_gif = new Gif("", "", 0, 0, 0);
         $info_user = new User(0, "", "", "");
         $tag_info = new Tag('', 0, 0);
@@ -246,7 +252,7 @@ class Controller
 
         // Gif similaire
         $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifFromCategorieId($id);
+        $user_gifs = $edit->getAllGifWithCategorieId($id);
 
         $title = 'Your profile';
 
@@ -254,10 +260,7 @@ class Controller
     }
 
 
-
-
-
-
+//méthode pour afficher le home
     public function home()
     {
         // categorie for page
@@ -269,6 +272,7 @@ class Controller
 
         render('page/index', compact('title', 'categorieSelectAll'));
     }
+    //méthode pour la page de confidentialité
     public function confidentialite()
     {
         // categorie for page
@@ -277,6 +281,8 @@ class Controller
 
         render('page/confidentialite', compact('title'));
     }
+        //méthode pour la page de contact
+
     public function contact()
     {
         // categorie for page
@@ -285,6 +291,8 @@ class Controller
 
         render('page/contact', compact('title'));
     }
+        //méthode pour la page de mot de passe oublié
+
     public function misspassword()
     {
         // categorie for page
@@ -293,13 +301,15 @@ class Controller
 
         render('page/misspassword', compact('title'));
     }
+        //méthode pour la page après la recherche
+
     public function search($id)
     {
 
 
         // Get all gif from the user
-        $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifFromCategorieId($id);
+        $gif = new Gif('', '', 0, 0, 0);
+        $user_gifs = $gif->getAllGifWithCategorieId($id);
 
         // //get information from the user
         // $edit = new User(0, '', '', '');
