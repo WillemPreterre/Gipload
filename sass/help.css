@@ -298,15 +298,47 @@ section > .form_field {
 }
 
 .gif_info_title {
-  margin-left: 8px;
-  margin-top: 8px;
+  margin: 8px;
+}
+
+.gif_info_tag {
+  margin: 22 0px;
 }
 
 .gif_info_tag_name {
-  background: #ff6e00;
+  background: #00d2ff;
   padding: 5 15px;
   margin: 5 0px;
   text-align: center;
+}
+
+.gif_info_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gif_info_container img {
+  width: 350px;
+}
+
+.gif_info_user {
+  margin-top: 5px;
+}
+
+.gif_info_user a {
+  margin: 5px;
+  text-decoration: none;
+}
+
+.gif_info_user a span {
+  font-size: 25px;
 }
 
 .gif_info_details {
@@ -320,6 +352,7 @@ section > .form_field {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: 22 0px;
 }
 
 .popup {

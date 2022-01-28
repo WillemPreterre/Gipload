@@ -270,25 +270,46 @@ header {
             width: 350px;
             border: 100px $grey solid;
             box-sizing: border-box;
-
         }
     }
     &_title {
-        margin-left: 8px;
-        margin-top: 8px;
+        margin: 8px;
     }
     &_tag {
+        margin: 22 0px;
+
         &_name {
-            background: $orange;
+            background: $blue;
             padding: 5 15px;
             margin: 5 0px;
             text-align: center;
+        }
+    }
+    &_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 350px;
+        }
+    }
+    &_user {
+        margin-top: 5px;
+
+        a {
+            margin: 5px;
+            text-decoration: none;
+            
+            span {
+                font-size: 25px;
+            }
         }
     }
     &_details {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+        margin: 22 0px;
     }
 }
 // ---------------------------------------------------
@@ -328,7 +349,6 @@ header {
     font-size: 10px;
 }
 .categorie {
-
     &_link {
         display: flex;
         justify-content: center;

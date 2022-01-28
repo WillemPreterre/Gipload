@@ -227,14 +227,13 @@ class Controller
         //récupérer l'id du gif + nom
         $allInformationGif = $info_gif->getOneGif($id);
         $user_name = $info_user->getInformation($allInformationGif['user_id']);
-        
-        // Gif
-        // $user_gifs = $info_gif->getAllGifFromUser($id);
 
+        // Gif
+        $user_gifs = $info_gif->getAllGifFromUser($allInformationGif['category_id']);
+        pretty_print_r($user_gifs);
         $tag_get = $tag_info->getTag($id);
 
         // pretty_print_r($tag_get);
-        pretty_print_r($tag_get);
 
         foreach ($tag_get as $tag) {
 
@@ -242,10 +241,8 @@ class Controller
 
             $tagAllTag = $TagName[0]['tag_name'];
 
-             $tag_info->getTagName($tag['tag_id']);
-             
+            $tag_info->getTagName($tag['tag_id']);
         }
-        pretty_print_r($tag);
 
         // Gif similaire
         $edit = new Gif('', '', 0, 0, 0);
@@ -253,7 +250,7 @@ class Controller
 
         $title = 'Your profile';
 
-        render('/page/gif_info', compact('title', 'allInformationGif','user_gifs', 'tag_get', 'tag_info', 'user_name'));
+        render('/page/gif_info', compact('title', 'allInformationGif', 'user_gifs', 'tag_get', 'tag_info', 'user_name'));
     }
 
 
