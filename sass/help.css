@@ -112,10 +112,6 @@ header {
   border: 1px solid #707070;
 }
 
-.nav a:hover {
-  opacity: 90%;
-}
-
 .form_container {
   background-color: #1a1a1a;
   margin: 20px;
@@ -170,10 +166,6 @@ section > .form_field {
   font-size: 30px;
   background-color: #ca02d8;
   border: none;
-}
-
-.form_btn:hover {
-  opacity: 80%;
 }
 
 .form_input {
@@ -328,6 +320,18 @@ section > .form_field {
   width: 350px;
 }
 
+.gif_info_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 15px;
+}
+
 .gif_info_user {
   margin-top: 5px;
 }
@@ -353,6 +357,14 @@ section > .form_field {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 22 0px;
+}
+
+.icon_info {
+  font-size: 25px;
+}
+
+.contact_msg p {
+  margin: 8px;
 }
 
 .popup {
@@ -399,6 +411,30 @@ section > .form_field {
   background-color: #ff3b97;
   padding: 45px;
   margin: 4px;
+}
+
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.error_page_img {
+  width: 300px;
+}
+
+.error_page_msg {
+  margin: 5px;
 }
 
 .BgColor--red {

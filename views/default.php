@@ -20,7 +20,7 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
 
     <header class="color--black">
         <nav class="nav">
-            <h1 class="nav_title"><a href="userGif.php?name=<?php echo $_COOKIE['name'] ?>">Gipload</a></h1>
+            <h1 class="nav_title"><a href="?page=home">Gipload</a></h1>
             <div class="nav_link">
                 <a class="BgColor--blue" rel="stylesheet" href="?page=inscription">Register</a>
                 <a class="BgColor--blue" href="?page=connection">Sign in</a>
@@ -28,7 +28,7 @@ if ($_COOKIE['name'] == null || !isset($_COOKIE)) :  ?>
             </div>
 
             <div class="deroulantAbout">
-                <a class="BgColor--pink" href="#">Contact us</a>
+                <a class="BgColor--pink" href="?page=contact">Contact us</a>
                 <a class="BgColor--purple" href="#">Privacy</a>
                 <a class="BgColor--orange" href="#">How to upload a GIF</a>
                 <a class="BgColor--orange" href="#">How to download a GIF</a>

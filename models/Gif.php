@@ -52,12 +52,20 @@ class Gif
         return $sth;
     }
 
-    public function getAllGifFromUser($id)
+    public function getAllGifFromCategorieId($id)
     {
         $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE category_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetchAll();
-        pretty_print_r($details);
+        // pretty_print_r($details);
+        return $details;
+    }
+    public function getAllGifWithUserId($id)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE user_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetchAll();
+        // pretty_print_r($details);
         return $details;
     }
 
@@ -78,7 +86,7 @@ class Gif
         // pretty_print_r($details);
         return $details;
     }
-
+    //méthode pour montrer page gif
     public function getOneGif($id)
     {
         $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE gif_id = ?");
@@ -87,7 +95,7 @@ class Gif
         // pretty_print_r($details);
         return $details;
     }
-
+    //méthode pour récupérer info des catégories
     public function getCategorie()
     {
         $stmt = Database::connectDB()->prepare("SELECT category_id,category_name FROM Category");
@@ -97,6 +105,8 @@ class Gif
         return $details;
     }
 
+
+    // méthode pour évolution
     public function deleteGif($id)
     {
         $stmt = Database::connectDB()->prepare("DELETE FROM Gif WHERE gif_id = ?");
@@ -105,7 +115,7 @@ class Gif
         // pretty_print_r($delete);
         return $delete;
     }
-
+    //méthode pour récup les tags
     public function getAllIdForGetTag($url)
     {
         $stmt = Database::connectDB()->prepare("SELECT gif_id FROM gif WHERE `gif_url` = ?");

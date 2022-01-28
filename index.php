@@ -8,7 +8,7 @@ if (isset($_GET['action'])) {
 } else {
     $action = '';
 }
-pretty_print_r($action);
+// pretty_print_r($action);
 // ? permet de donner un parametre en GET / & permet de faire un autre get 
 // TP-POO Avancee/source/?action=book&id=6
 

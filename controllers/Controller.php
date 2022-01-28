@@ -25,7 +25,7 @@ class Controller
             $sanitize_email = Sanitize::email($email);
             $sanitize_username = Sanitize::text($username);
             $sanitize_password = Sanitize::text($password);
-            pretty_print_r($password);
+            // pretty_print_r($password);
             //Patern pour trier et message d'erreur
             $uppercase = "AZERTYUIOPQSDFGHJKLMWXCVBN";
             $lowercase = "azertyuiopqsdfghjklmwxcvbn";
@@ -100,7 +100,7 @@ class Controller
         $edit = new User(0, '', '', '');
         $user_edit = $edit->getInformation($id);
 
-        pretty_print_r($user_edit);
+        // pretty_print_r($user_edit);
 
         $title = 'Your profile';
 
@@ -179,7 +179,7 @@ class Controller
 
         // Get all gif from the user
         $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifFromUser($id);
+        $user_gifs = $edit->getAllGifWithUserId($id);
 
         //get information from the user
         $edit = new User(0, '', '', '');
@@ -229,8 +229,8 @@ class Controller
         $user_name = $info_user->getInformation($allInformationGif['user_id']);
 
         // Gif
-        $user_gifs = $info_gif->getAllGifFromUser($allInformationGif['category_id']);
-        pretty_print_r($user_gifs);
+        $user_gifs = $info_gif->getAllGifWithUserId($allInformationGif['category_id']);
+        // pretty_print_r($user_gifs);
         $tag_get = $tag_info->getTag($id);
 
         // pretty_print_r($tag_get);
@@ -246,7 +246,7 @@ class Controller
 
         // Gif similaire
         $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifFromUser($id);
+        $user_gifs = $edit->getAllGifFromCategorieId($id);
 
         $title = 'Your profile';
 
@@ -269,13 +269,37 @@ class Controller
 
         render('page/index', compact('title', 'categorieSelectAll'));
     }
+    public function confidentialite()
+    {
+        // categorie for page
+        $title = 'Thermes of services';
+
+
+        render('page/confidentialite', compact('title'));
+    }
+    public function contact()
+    {
+        // categorie for page
+        $title = 'Contact';
+
+
+        render('page/contact', compact('title'));
+    }
+    public function misspassword()
+    {
+        // categorie for page
+        $title = 'password';
+
+
+        render('page/misspassword', compact('title'));
+    }
     public function search($id)
     {
 
 
         // Get all gif from the user
         $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifFromUser($id);
+        $user_gifs = $edit->getAllGifFromCategorieId($id);
 
         // //get information from the user
         // $edit = new User(0, '', '', '');

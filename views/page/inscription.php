@@ -28,7 +28,7 @@
                 </div>
                 <div class="form_checkbox ">
                     <input type="checkbox" class="checkboxCreateAccount" id="checkboxCreateAccount" name="privacy">
-                    <label for="checkboxCreateAccount">i read and accept The <a href="">Termes of Services</a> </label>
+                    <label for="checkboxCreateAccount">i read and accept The <a href="?page=confidentialite">Termes of Services</a> </label>
                 </div>
                 <div class="form_field">
                     <input class="form_btn submitCreateAccount" disabled class="form_btn" type="submit" value="Submit">

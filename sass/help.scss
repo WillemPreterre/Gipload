@@ -131,9 +131,7 @@ header {
             border: 1px solid $grey;
         }
     }
-    a:hover {
-        opacity: 90%;
-    }
+
 }
 
 // ---------------------------------------------------
@@ -185,9 +183,7 @@ header {
         background-color: $purple;
         border: none;
     }
-    &_btn:hover {
-        opacity: 80%;
-    }
+
     &_input {
         padding: 12px 20px;
         margin: 8px 0;
@@ -293,6 +289,13 @@ header {
             width: 350px;
         }
     }
+
+    &_btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 15px;
+    }
     &_user {
         margin-top: 5px;
 
@@ -311,6 +314,14 @@ header {
         flex-direction: column;
         margin: 22 0px;
     }
+}
+
+.icon_info {
+    font-size: 25px;
+}
+
+.contact_msg p{
+    margin: 8px;
 }
 // ---------------------------------------------------
 
@@ -363,6 +374,27 @@ header {
     }
 }
 
+// ---------------------------------------------------
+
+//                    @@@4O4
+
+// ---------------------------------------------------
+
+.error {
+    &_page {
+        &_img {
+            width: 300px;
+        }
+        &_msg {
+            margin: 5px;
+        }
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
 // ---------------------------------------------------
 
 //                    @@@Icone

@@ -21,7 +21,7 @@
                 </div>
                 <div class="form_link">
                     <a class="link_connect" rel="stylesheet" href="/?page=inscription">Register now</a>
-                    <a class="link_connect" rel="stylesheet" href="../controllers/UserInscription.php">Forgot your password</a>
+                    <a class="link_connect" rel="stylesheet" href="/?page=misspassword">Forgot your password</a>
 
                 </div>
             </section>

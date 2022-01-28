@@ -13,6 +13,20 @@
                 </div>
 
             </section>
+
+            <section>
+                <div class="form_field">
+                    <p class="date">Account creation : <?php echo $user_edit["user_email"]  ?></p>
+                </div>
+
+            </section>
+            <section>
+                <div class="form_field">
+                    <p class="date">Account creation : <?php echo $user_edit["user_createdate"]?></p>
+                    <p class="date">Account last edit : <?php echo $user_edit["user_editdate"]?></p>
+                </div>
+
+            </section>
         </form>
         <form class="form" method="POST" action="../../controllers/userChangePassword.php">
             <section>

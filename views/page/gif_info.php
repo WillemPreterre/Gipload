@@ -16,6 +16,10 @@
         </div>
 
         <div class="gif_info_btn">
+        <i class="icon_info fas fa-link"></i>
+        <i class="icon_info fas fa-code"></i>
+        <i class="icon_info far fa-arrow-alt-circle-down"></i>
+        <i class="icon_info far fa-heart"></i>
         </div>
 
         <div class="gif_info_tag">

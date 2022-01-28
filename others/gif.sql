@@ -15,9 +15,9 @@ CREATE TABLE `Category` (
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `Category` (`category_id`, `category_name`) VALUES (1, 'Liked');
+INSERT INTO `Category` (`category_id`, `category_name`) VALUES (1, 'Hero');
 INSERT INTO `Category` (`category_id`, `category_name`) VALUES (2, 'Anime');
-INSERT INTO `Category` (`category_id`, `category_name`) VALUES (3, 'Animals');
+INSERT INTO `Category` (`category_id`, `category_name`) VALUES (3, 'Animal');
 INSERT INTO `Category` (`category_id`, `category_name`) VALUES (4, 'Dance');
 INSERT INTO `Category` (`category_id`, `category_name`) VALUES (5, 'Angry');
 INSERT INTO `Category` (`category_id`, `category_name`) VALUES (6, 'Smile');

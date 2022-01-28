@@ -16,10 +16,10 @@ $sanitaze_new_password = Sanitize::text($password_new_post);
 $newUser = new User(0, "", "", "");
 $user_name_verif = $newUser->changePassword($usercookie);
 
-pretty_print_r($user_name_verif['user_password']);
+// pretty_print_r($user_name_verif['user_password']);
 $password_hash = password_hash($sanitaze_new_password, PASSWORD_BCRYPT);
 
-pretty_print_r($password_hash);
+// pretty_print_r($password_hash);
 
 
 if (password_verify($sanitaze_last_password, $user_name_verif['user_password'])) {
