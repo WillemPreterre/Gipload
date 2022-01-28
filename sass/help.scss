@@ -259,7 +259,8 @@ header {
 
 // ---------------------------------------------------
 
-.gif {
+.gif_info {
+    margin: 10px;
     &_view {
         display: flex;
         justify-content: center;
@@ -275,6 +276,19 @@ header {
     &_title {
         margin-left: 8px;
         margin-top: 8px;
+    }
+    &_tag {
+        &_name {
+            background: $orange;
+            padding: 5 15px;
+            margin: 5 0px;
+            text-align: center;
+        }
+    }
+    &_details {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
     }
 }
 // ---------------------------------------------------
@@ -316,9 +330,15 @@ header {
 .categorie {
 
     &_link {
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
         &_btn {
-            
+            font-size: 25px;
+            background-color: $pink;
+            padding: 45px;
+            margin: 4px;
         }
     }
 }

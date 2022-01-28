@@ -40,6 +40,15 @@ class Tag
         return $details;
     }
 
+    public function getAllTag()
+    {
+        $stmt = Database::connectDB()->query("SELECT tag_name FROM Tag ");
+        $stmt->execute([]);
+        $details = $stmt->fetchAll();
+        // pretty_print_r($details);
+        return $details;
+    }
+
     public function addTagInGetTag()
     {
         $sql = "INSERT INTO  Get_tag_for_gif (gif_id,tag_id)
@@ -52,6 +61,25 @@ class Tag
         }
         return $sth;
     }
+
+    public function getTag($id)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Get_tag_for_gif WHERE gif_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetchAll();
+        // pretty_print_r($details);
+        return $details;
+    }
+
+    public function getTagName($id)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Tag WHERE tag_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetchAll();
+        // pretty_print_r($details);
+        return $details;
+    }
+
     public function __set($property, $value)
     {
         $this->$property = $value;

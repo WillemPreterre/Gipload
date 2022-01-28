@@ -3,6 +3,7 @@
 // require_once('../others/utils.php');
 require_once('./models/User.php');
 require_once('./models/Gif.php');
+require_once('./models/Tag.php');
 require_once('./models/Sanitize.php');
 require_once('./models/Link.php');
 
@@ -91,23 +92,7 @@ class Controller
         //doublon
     }
 
-    public function usergifs($id)
-    {
 
-
-        // Get all gif from the user
-        $edit = new Gif('', '', 0, 0, 0);
-        $user_gifs = $edit->getAllGifFromUser($id);
-
-        //get information from the user
-        $edit = new User(0, '', '', '');
-        $user_edit = $edit->getInformation($id);
-
-
-        $title = 'Your GIF';
-
-        render('page/user_gifs', compact('title', 'user_edit', 'user_gifs'));
-    }
 
     public function edit($id)
     {
@@ -188,6 +173,23 @@ class Controller
         Link::redirectTo("/?page=home");
     }
 
+    public function usergifs($id)
+    {
+
+
+        // Get all gif from the user
+        $edit = new Gif('', '', 0, 0, 0);
+        $user_gifs = $edit->getAllGifFromUser($id);
+
+        //get information from the user
+        $edit = new User(0, '', '', '');
+        $user_edit = $edit->getInformation($id);
+
+
+        $title = 'Your GIF';
+
+        render('page/user_gifs', compact('title', 'user_edit', 'user_gifs'));
+    }
     public function gifupload()
     {
 
@@ -211,25 +213,81 @@ class Controller
         render('page/gif_traitement');
     }
 
+
+
+
+
     public function gifinfo($id)
     {
-
+        // Appelle Model
         $info_gif = new Gif("", "", 0, 0, 0);
+        $info_user = new User(0, "", "", "");
+        $tag_info = new Tag('', 0, 0);
 
+        //récupérer l'id du gif + nom
         $allInformationGif = $info_gif->getOneGif($id);
+        $user_name = $info_user->getInformation($allInformationGif['user_id']);
+        
+        // Gif
+        // $user_gifs = $info_gif->getAllGifFromUser($id);
+
+        $tag_get = $tag_info->getTag($id);
+
+        // pretty_print_r($tag_get);
+        pretty_print_r($tag_get);
+
+        foreach ($tag_get as $tag) {
+
+            $TagName = $tag_info->getTagName($tag['tag_id']);
+
+            $tagAllTag = $TagName[0]['tag_name'];
+
+             $tag_info->getTagName($tag['tag_id']);
+             
+        }
+        pretty_print_r($tag);
+
+        // Gif similaire
+        $edit = new Gif('', '', 0, 0, 0);
+        $user_gifs = $edit->getAllGifFromUser($id);
 
         $title = 'Your profile';
 
-        render('/page/gif_info', compact('title', 'allInformationGif'));
+        render('/page/gif_info', compact('title', 'allInformationGif','user_gifs', 'tag_get', 'tag_info', 'user_name'));
     }
+
+
+
+
+
 
     public function home()
     {
+        // categorie for page
         $title = 'Gif page';
         $categorie = new Gif("", "", 0, 0, 0);
-
         $categorieSelectAll = $categorie->getCategorie();
-        
+
+
+
         render('page/index', compact('title', 'categorieSelectAll'));
+    }
+    public function search($id)
+    {
+
+
+        // Get all gif from the user
+        $edit = new Gif('', '', 0, 0, 0);
+        $user_gifs = $edit->getAllGifFromUser($id);
+
+        // //get information from the user
+        // $edit = new User(0, '', '', '');
+        // $user_edit = $edit->getInformation($id);
+
+
+        $title = 'Search';
+
+
+        render('page/search', compact('title',  'user_gifs'));
     }
 }

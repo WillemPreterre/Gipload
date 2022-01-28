@@ -58,6 +58,7 @@ class User
     }
 
 
+
     public function getInformation($id)
     {
         $stmt = Database::connectDB()->prepare("SELECT * FROM User WHERE user_id = ?");
@@ -77,7 +78,24 @@ class User
         return $details;
     }
 
+    public function modifyPassword($newName, $id)
+    {
+        $stmt = Database::connectDB()->prepare("UPDATE User SET user_password = ? WHERE user_id= ?");
+        $stmt->execute([$newName ,$id]);
+        $details = $stmt->fetch();
+        // pretty_print_r($details);
+        return $details;
+    }
 
+    public function changePassword($password)
+    {
+        // setcookie($cookie_name, $cookie_value, time() + (86400 * 365), "/"); // 86400 = 1 day
+        $stmt = Database::connectDB()->prepare("SELECT user_password FROM User WHERE user_id= ?");
+        $stmt->execute([$password]);
+        $users = $stmt->fetch();
+        // pretty_print_r($users);
+        return $users;
+    }
 
     public function __set($property, $value)
     {

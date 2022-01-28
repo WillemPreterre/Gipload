@@ -54,6 +54,24 @@ class Gif
 
     public function getAllGifFromUser($id)
     {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE category_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetchAll();
+        pretty_print_r($details);
+        return $details;
+    }
+
+    public function getInformationCategorie($id)
+    {
+        $stmt = Database::connectDB()->prepare("SELECT * FROM Category WHERE category_id = ?");
+        $stmt->execute([$id]);
+        $details = $stmt->fetch();
+        // pretty_print_r($details);
+        return $details;
+    }
+
+    public function getAllGifFromCategorie($id)
+    {
         $stmt = Database::connectDB()->prepare("SELECT * FROM Gif WHERE user_id = ?");
         $stmt->execute([$id]);
         $details = $stmt->fetchAll();
